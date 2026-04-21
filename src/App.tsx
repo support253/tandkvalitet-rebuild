@@ -2,6 +2,18 @@ import './index.css'
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
 import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown } from 'lucide-react'
+import heroReception from './assets/hero-reception.jpg'
+import behandlingerAction from './assets/behandlinger-action.jpg'
+import serviceGenerel from './assets/service-generel.jpg'
+import serviceKirurgi from './assets/service-kirurgi.jpg'
+import serviceKroner from './assets/service-kroner.jpg'
+import serviceAkut from './assets/service-akut.jpg'
+import implantaterRoom from './assets/implantater-room.jpg'
+import tandlaegeskraekWaiting from './assets/tandlaegeskraek-waiting.jpg'
+import allanPortrait from './assets/allan-portrait.jpg'
+import hanaPortrait from './assets/hana-portrait.jpg'
+import lokationExterior from './assets/lokation-exterior.jpg'
+import ctaChurch from './assets/cta-church.jpg'
 
 function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
@@ -130,8 +142,8 @@ export default function App() {
       <section className="relative pt-14 min-h-[85vh] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <motion.img
-            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2000&auto=format&fit=crop"
-            alt="Moderne tandklinik"
+            src={heroReception}
+            alt="Reception hos Tandkvalitet i Nyborg"
             className="w-full h-full object-cover scale-110"
             style={{ y: heroImageY }}
           />
@@ -194,8 +206,8 @@ export default function App() {
               </p>
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop"
-                  alt="Tandbehandling"
+                  src={behandlingerAction}
+                  alt="Tandlæge Hana i gang med behandling"
                   className="w-full h-[300px] object-cover"
                 />
               </div>
@@ -209,23 +221,23 @@ export default function App() {
                 {
                   title: 'Generel tandpleje',
                   desc: 'Eftersyn, tandrensning, fyldninger, rodbehandling og forebyggende behandling for hele familien.',
-                  img: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=400&auto=format&fit=crop',
+                  img: serviceGenerel,
                 },
                 {
                   title: 'Implantater & kirurgi',
                   desc: 'All-on-4, guided surgery, knogerekonstruktion og A-PRF. Vores nationale speciale.',
-                  img: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=400&auto=format&fit=crop',
+                  img: serviceKirurgi,
                   highlight: true,
                 },
                 {
                   title: 'Kroner & proteser',
                   desc: 'Tandkroner, broer, helproteser, delproteser og kosmetisk tandbehandling.',
-                  img: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=400&auto=format&fit=crop',
+                  img: serviceKroner,
                 },
                 {
                   title: 'Akut tandhjælp',
                   desc: 'Akutte tilfælde prioriteres. Ring 08-10 for hurtig hjælp. Udenfor åbningstid: Tandlægevagten.',
-                  img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=400&auto=format&fit=crop',
+                  img: serviceAkut,
                 },
               ].map((s, i) => (
                 <div key={i} className={`rounded-2xl overflow-hidden border transition-all hover:shadow-md group ${
@@ -286,8 +298,8 @@ export default function App() {
           {/* Image half */}
           <div className="relative h-[300px] lg:h-auto">
             <img
-              src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1000&auto=format&fit=crop"
-              alt="Implantat behandling"
+              src={implantaterRoom}
+              alt="Behandlingsrum til implantatbehandling"
               className="w-full h-full object-cover"
             />
           </div>
@@ -343,8 +355,8 @@ export default function App() {
             <SlideIn direction="left">
             <div className="rounded-2xl overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1445527815219-ecbfec67492e?q=80&w=800&auto=format&fit=crop"
-                alt="Tryg behandling"
+                src={tandlaegeskraekWaiting}
+                alt="Rolig venteområde med bløde stole"
                 className="w-full h-[400px] object-cover"
               />
             </div>
@@ -397,7 +409,7 @@ export default function App() {
                 specialty: 'Kirurgi & Implantologi',
                 loc: 'Indehaver',
                 bio: 'Allan interesserer sig specielt for kirurgi og implantologi og tilbyder avancerede rekonstruktioner. Han er konsulent for andre tandlæger og opererer for klinikker landet over.',
-                img: 'https://www.tandkvalitet.dk/wp-content/uploads/2017/05/allan_ok.jpg',
+                img: allanPortrait,
               },
               {
                 name: 'Hana El-khawaga',
@@ -405,7 +417,7 @@ export default function App() {
                 specialty: 'Parodontose & Angstbehandling',
                 loc: 'Indehaver',
                 bio: 'Hana har bred erfaring og interesserer sig særligt for tandlægeskræk, paradentosebehandling og rodbehandlinger. Hun yder altid en perfektionistisk og omsorgsfuld behandling.',
-                img: 'https://www.tandkvalitet.dk/wp-content/uploads/2023/08/hana2.jpg',
+                img: hanaPortrait,
               },
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -439,8 +451,8 @@ export default function App() {
           <div className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
             <div className="relative h-[280px] lg:h-auto overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1000&auto=format&fit=crop"
-                alt="Tandkvalitet, Adelgade 5, Nyborg"
+                src={lokationExterior}
+                alt="Tandkvalitet, Adelgade 5, Nyborg — facade"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -490,7 +502,7 @@ export default function App() {
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=2000&auto=format&fit=crop"
+            src={ctaChurch}
             alt=""
             className="w-full h-full object-cover"
           />
