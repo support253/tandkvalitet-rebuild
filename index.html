@@ -1,13 +1,1185 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tandkvalitet-rebuild</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#2baeb5">
+
+  <title>Tandkvalitet Nyborg — Tandlæge på Adelgade | Hana El-khawaga & Allan Friis Pedersen</title>
+  <meta name="description" content="Tandlæge i Nyborg siden august 2024. Professionel behandling, fokus på tandlægeskræk og implantologi som speciale. Ring 65 31 33 00 for tid.">
+  <meta name="keywords" content="tandlæge Nyborg, tandlæge Fyn, implantater Nyborg, All-on-4 Danmark, tandlægeskræk, Hana El-khawaga, Allan Friis Pedersen, Adelgade 5">
+
+  <link rel="canonical" href="https://tandkvalitet.dk/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tandkvalitet Nyborg">
+  <meta property="og:title" content="Tandkvalitet Nyborg — Tandlæge på Adelgade">
+  <meta property="og:description" content="Tandklinik i Nyborg. To erfarne indehavere, implantologi som speciale og fokus på tandlægeskræk.">
+  <meta property="og:url" content="https://tandkvalitet.dk/">
+  <meta property="og:locale" content="da_DK">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "@id": "https://tandkvalitet.dk/#organization",
+    "name": "Tandkvalitet Nyborg",
+    "url": "https://tandkvalitet.dk/",
+    "telephone": "+45-65-31-33-00",
+    "email": "info@tandkvalitet.dk",
+    "description": "Tandklinik i Nyborg med to erfarne indehavere. Implantologi som speciale, fokus på tandlægeskræk.",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Adelgade 5",
+      "addressLocality": "Nyborg",
+      "postalCode": "5800",
+      "addressCountry": "DK",
+      "addressRegion": "Region Syddanmark"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Nyborg"},
+      {"@type": "City", "name": "Kerteminde"},
+      {"@type": "City", "name": "Ullerslev"},
+      {"@type": "AdministrativeArea", "name": "Fyn"}
+    ],
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "15:00"},
+      {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "14:00"}
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "7"
+    },
+    "employee": [
+      {"@type": "Person", "name": "Hana El-khawaga", "jobTitle": "Tandlæge, Indehaver"},
+      {"@type": "Person", "name": "Allan Friis Pedersen", "jobTitle": "Tandlæge, Indehaver"}
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #1a1f26;
+      background: #FAF8F4;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --teal: #2baeb5;
+      --teal-dark: #1e8a90;
+      --teal-soft: #e6f5f6;
+      --navy: #0f2434;
+      --navy-soft: #1a3a5c;
+      --cream: #FAF8F4;
+      --paper: #F1ECE2;
+      --sand: #E8E0D0;
+      --ink: #1a1f26;
+      --ink-60: #5a626b;
+      --ink-40: #8a929b;
+      --line: #D9D2C4;
+    }
+
+    .serif { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+    h1, h2, h3 { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; letter-spacing: -0.015em; line-height: 1.05; }
+    h1 { font-size: clamp(2.75rem, 6vw, 5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.25rem); }
+    h3 { font-size: clamp(1.35rem, 2vw, 1.65rem); letter-spacing: 0; line-height: 1.2; }
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .container { width: min(1200px, 92%); margin: 0 auto; }
+    section { padding: clamp(4rem, 8vw, 7rem) 0; }
+
+    /* --- Nav --- */
+    nav.top {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow 0.25s ease;
+    }
+    nav.top.scrolled { box-shadow: 0 6px 24px -18px rgba(15,36,52,0.35); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0;
+    }
+    .brand { display: flex; flex-direction: column; }
+    .brand-name { font-family: 'Instrument Serif', serif; font-size: 22px; color: var(--navy); letter-spacing: -0.01em; line-height: 1; }
+    .brand-name span { color: var(--teal); font-style: italic; }
+    .brand-sub { font-size: 11px; color: var(--ink-60); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 3px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      font-size: 14px; color: var(--ink); font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a:not(.call-btn)::after {
+      content: '';
+      position: absolute; left: 0; right: 0; bottom: -4px;
+      height: 1px; background: var(--teal);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 0.3s cubic-bezier(.2,.7,.2,1);
+    }
+    .nav-links a:not(.call-btn):hover::after { transform: scaleX(1); }
+    .nav-links a:hover { color: var(--teal); }
+    .call-btn {
+      background: var(--teal); color: #fff !important; padding: 10px 18px;
+      border-radius: 999px; font-size: 14px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .call-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+    .call-btn svg { width: 14px; height: 14px; }
+    .menu-toggle { display: none; background: none; border: 0; font-size: 14px; font-weight: 500; cursor: pointer; }
+
+    /* --- Hero --- */
+    .hero {
+      padding: clamp(3rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 28px; height: 1px; background: var(--teal);
+    }
+    .hero h1 {
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal); }
+    .hero-lede {
+      font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+      color: var(--ink-60);
+      max-width: 48ch;
+      margin-bottom: 2rem;
+      line-height: 1.55;
+    }
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: #fff; border: 1px solid var(--line);
+      padding: 10px 16px; border-radius: 999px;
+      margin-bottom: 2.5rem;
+      font-size: 13px; color: var(--ink);
+    }
+    .rating-stars {
+      color: #F6A623; font-size: 14px; letter-spacing: 1px;
+    }
+    .rating-badge strong { font-weight: 600; }
+    .rating-badge .rating-src { color: var(--ink-60); font-size: 12px; }
+    .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .cta-primary {
+      background: var(--navy); color: #fff; padding: 15px 28px;
+      border-radius: 999px; font-size: 15px; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.25s;
+    }
+    .cta-primary:hover { background: var(--teal); transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(15,36,52,0.45); }
+    .cta-secondary {
+      color: var(--navy); font-size: 15px; font-weight: 500;
+      border-bottom: 1px solid var(--navy);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
+    .hero-card {
+      position: relative;
+      color: #fff;
+      padding: clamp(2.5rem, 4vw, 3.5rem);
+      border-radius: 28px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      display: flex; flex-direction: column; justify-content: space-between;
+      background-image: linear-gradient(180deg, rgba(15,36,52,0.78) 0%, rgba(15,36,52,0.92) 100%), url('assets/hero-reception.jpg');
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
+    }
+    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -40px rgba(15,36,52,0.5); }
+    .hero-card::before {
+      content: ''; position: absolute; right: -80px; bottom: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(43,174,181,0.28), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-card-eyebrow {
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.18em; color: rgba(255,255,255,0.75);
+      font-weight: 600; margin-bottom: 1rem;
+    }
+    .hero-card-title {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.35rem, 2vw, 1.65rem);
+      font-style: italic; font-weight: 400;
+      margin-bottom: 2rem; line-height: 1.25;
+      max-width: 16ch;
+    }
+    .specialty-list { list-style: none; position: relative; z-index: 1; }
+    .specialty-list li {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 1rem; align-items: baseline;
+      padding: 1.1rem 0;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .specialty-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.18); }
+    .specialty-name {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+      font-style: italic;
+    }
+    .specialty-sub {
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.1em; color: rgba(255,255,255,0.72);
+      text-align: right;
+    }
+    .hero-card-foot {
+      position: relative; z-index: 1;
+      font-size: 13px; color: rgba(255,255,255,0.75);
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 2rem;
+    }
+    .hero-card-foot::before {
+      content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.5);
+    }
+
+    /* --- Trust strip --- */
+    .trust-strip { padding: 0 0 clamp(2rem, 4vw, 3rem); }
+    .trust-strip-inner {
+      display: flex; flex-wrap: wrap; justify-content: space-between;
+      gap: 1.5rem 2.5rem;
+      padding: 1.5rem 2rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px; color: var(--ink-60);
+    }
+    .trust-strip-inner span { display: inline-flex; align-items: center; gap: 8px; }
+    .trust-strip-inner .check { color: var(--teal); font-weight: 600; }
+    .trust-strip-inner strong { color: var(--ink); font-weight: 600; }
+
+    /* --- Principles --- */
+    .principles-wrap { padding: 0 0 clamp(3rem, 5vw, 4rem); }
+    .principles {
+      background: var(--navy);
+      color: #fff;
+      padding: clamp(2.75rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem);
+      border-radius: 32px;
+    }
+    .principles-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+    .principle { position: relative; padding-left: 56px; }
+    .principle-num {
+      position: absolute; left: 0; top: 4px;
+      font-family: 'Instrument Serif', serif;
+      font-size: 34px; color: var(--teal); font-style: italic;
+      line-height: 1;
+      transition: transform 0.35s cubic-bezier(.2,.7,.2,1);
+      display: inline-block;
+    }
+    .principle:hover .principle-num { transform: translateY(-2px) scale(1.05); }
+    .principle h3 { color: #fff; font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .principle p { color: rgba(255,255,255,0.72); font-size: 15px; line-height: 1.55; }
+
+    /* --- Implantater highlight --- */
+    .highlight {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background: var(--paper);
+    }
+    .highlight-grid {
+      display: grid; grid-template-columns: 1fr 1.1fr;
+      gap: clamp(2.5rem, 5vw, 5rem); align-items: center;
+    }
+    .highlight-panel {
+      aspect-ratio: 5/6;
+      background-image: linear-gradient(180deg, rgba(15,36,52,0.55) 0%, rgba(15,36,52,0.92) 100%), url('assets/implantater-room.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      border-radius: 24px;
+      padding: clamp(2rem, 3vw, 3rem);
+      position: relative;
+      overflow: hidden;
+      display: flex; flex-direction: column; justify-content: space-between;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
+    }
+    .highlight-panel:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -40px rgba(15,36,52,0.5); }
+    .highlight-panel::before {
+      content: ''; position: absolute; top: -40%; left: -20%;
+      width: 140%; height: 80%;
+      background: radial-gradient(ellipse at center, rgba(43,174,181,0.3), transparent 60%);
+      pointer-events: none;
+    }
+    .hp-top { position: relative; z-index: 1; }
+    .hp-top .eyebrow { color: var(--teal); opacity: 1; margin-bottom: 1.25rem; display: block; }
+    .hp-mono {
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-style: italic; line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .hp-mono span { color: var(--teal); }
+    .hp-bottom {
+      position: relative; z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.18);
+      padding-top: 1.25rem;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .hp-bottom strong { display: block; color: #fff; font-size: 14px; margin-bottom: 4px; font-weight: 600; }
+    .highlight h2 { color: var(--navy); margin-bottom: 1.5rem; max-width: 16ch; }
+    .highlight-lede { color: var(--ink-60); font-size: 1.05rem; max-width: 50ch; line-height: 1.55; }
+    .highlight-features {
+      list-style: none; margin: 2rem 0; display: grid; gap: 14px;
+    }
+    .highlight-features li {
+      padding-left: 28px; position: relative; font-size: 15px; color: var(--ink);
+    }
+    .highlight-features li::before {
+      content: ''; position: absolute; left: 0; top: 8px;
+      width: 16px; height: 2px; background: var(--teal);
+    }
+    .highlight-features strong { color: var(--navy); font-weight: 600; }
+
+    /* --- Behandlinger --- */
+    #behandlinger { background: var(--cream); }
+    .treat-head {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 3rem; margin-bottom: 4rem; align-items: end;
+    }
+    .treat-head h2 { color: var(--navy); max-width: 14ch; }
+    .treat-head p { color: var(--ink-60); font-size: 1.05rem; line-height: 1.55; }
+    .treat-head a { color: var(--teal); border-bottom: 1px solid; }
+    .treat-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--line);
+      gap: 1px;
+    }
+    .treat-card {
+      padding: 2rem 1.5rem;
+      background: #fff;
+      transition: background 0.25s ease, transform 0.3s cubic-bezier(.2,.7,.2,1), box-shadow 0.3s ease;
+      color: inherit; text-decoration: none;
+      display: block; position: relative;
+    }
+    .treat-card:hover {
+      background: var(--paper);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px -22px rgba(15,36,52,0.35);
+      z-index: 1;
+    }
+    a.treat-card::after {
+      content: '→';
+      position: absolute; top: 1.5rem; right: 1.25rem;
+      font-size: 18px; color: var(--teal);
+      opacity: 0; transform: translateX(-4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    a.treat-card:hover::after { opacity: 1; transform: translateX(0); }
+    a.treat-card:hover h3 { color: var(--teal); }
+    .treat-num {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic; color: var(--teal);
+      font-size: 14px; margin-bottom: 1rem;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .treat-card:hover .treat-num { transform: translateX(2px); }
+    .treat-card h3 {
+      font-size: 1.15rem; color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      letter-spacing: -0.005em;
+      transition: color 0.2s;
+    }
+    .treat-card p { font-size: 13.5px; color: var(--ink-60); line-height: 1.5; }
+    .treat-cta .treat-num { color: var(--teal); font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; font-family: 'Inter', sans-serif; }
+
+    .advice {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: #fff;
+      border-radius: 20px;
+      border-left: 3px solid var(--teal);
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+    }
+    .advice h3 { color: var(--navy); font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 1.75rem; letter-spacing: -0.01em; }
+    .advice p { margin-bottom: 1rem; color: var(--ink-60); font-size: 15px; }
+    .advice-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 1rem; }
+    .advice-tags span {
+      background: var(--paper); padding: 6px 14px;
+      font-size: 13px; color: var(--navy);
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .advice-tags span:hover {
+      background: var(--teal);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* --- Tandlægeskræk --- */
+    #tandlaegeskraek { background: #fff; }
+    .skraek-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(2.5rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .skraek-photo {
+      aspect-ratio: 4/5;
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .skraek-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .skraek-content h2 { color: var(--navy); margin-bottom: 1.25rem; max-width: 16ch; }
+    .skraek-content h2 em { font-style: italic; color: var(--teal); }
+    .skraek-content p { color: var(--ink-60); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; max-width: 48ch; }
+    .skraek-features {
+      list-style: none; margin: 2rem 0; display: grid; gap: 14px;
+    }
+    .skraek-features li {
+      padding-left: 28px; position: relative; font-size: 15px; color: var(--ink);
+    }
+    .skraek-features li::before {
+      content: ''; position: absolute; left: 0; top: 10px;
+      width: 16px; height: 2px; background: var(--teal);
+    }
+
+    /* --- Team --- */
+    #tandlaeger { background: var(--paper); }
+    .team-head { max-width: 760px; margin: 0 auto 4rem; text-align: center; }
+    .team-head h2 { color: var(--navy); margin-bottom: 1rem; }
+    .team-head h2 em { font-style: italic; color: var(--teal); }
+    .team-head p { color: var(--ink-60); font-size: 1.05rem; }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: clamp(2rem, 3.5vw, 3rem);
+      max-width: 900px; margin: 0 auto;
+    }
+    .dentist-card {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 2.75rem 2rem;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease, border-color 0.3s;
+    }
+    .dentist-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -28px rgba(15,36,52,0.3);
+      border-color: var(--teal);
+    }
+    .dentist-photo {
+      width: 160px; height: 160px;
+      border-radius: 50%; overflow: hidden; position: relative;
+      margin-bottom: 1.5rem;
+      background: var(--paper);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 1px var(--line);
+      transition: box-shadow 0.3s;
+    }
+    .dentist-card:hover .dentist-photo { box-shadow: 0 0 0 1px var(--teal); }
+    .dentist-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    }
+    .dentist-card:hover .dentist-photo img { transform: scale(1.06); }
+    .dentist-photo .badge {
+      position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      background: var(--teal); color: #fff;
+      padding: 4px 12px; font-size: 10px;
+      text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
+      border-radius: 999px; white-space: nowrap;
+      transition: transform 0.3s;
+    }
+    .dentist-card:hover .dentist-photo .badge { transform: translateX(-50%) translateY(-2px); }
+    .dentist-card h3 {
+      font-family: 'Instrument Serif', serif; font-size: 1.85rem;
+      color: var(--navy); margin-bottom: 0.3rem; letter-spacing: -0.01em;
+    }
+    .dentist-meta {
+      font-size: 12px; color: var(--teal);
+      text-transform: uppercase; letter-spacing: 0.14em;
+      font-weight: 600; margin-bottom: 1rem;
+    }
+    .dentist-card p { font-size: 15px; color: var(--ink-60); line-height: 1.6; }
+
+    /* --- Pullquote --- */
+    .quote-wrap { padding: clamp(2rem, 4vw, 3rem) 0; }
+    .quote-block {
+      position: relative; overflow: hidden;
+      background-image: linear-gradient(180deg, rgba(15,36,52,0.82) 0%, rgba(15,36,52,0.92) 100%), url('assets/behandlinger-action.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: clamp(3.5rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4rem);
+      border-radius: 32px;
+    }
+    .quote-inner { max-width: 820px; margin: 0 auto; text-align: center; }
+    .quote-block blockquote {
+      font-family: 'Instrument Serif', serif; font-style: italic;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      line-height: 1.35; letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .quote-block blockquote::before { content: '"'; display: block; font-size: 3rem; line-height: 0.5; margin-bottom: 1.5rem; opacity: 0.5; color: var(--teal); }
+    .quote-block cite {
+      font-family: 'Inter', sans-serif; font-style: normal; font-size: 13px;
+      letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* --- Lokationer --- */
+    #kontakt { background: var(--cream); padding-bottom: clamp(5rem, 8vw, 8rem); }
+    .loc-head { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .loc-head h2 { color: var(--navy); margin-bottom: 1rem; }
+    .loc-head p { color: var(--ink-60); font-size: 1.05rem; }
+    .loc-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+    }
+    .loc-photo { position: relative; height: 100%; overflow: hidden; }
+    .loc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .loc-details {
+      padding: clamp(2rem, 4vw, 3rem);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .loc-details h3 { color: var(--navy); margin-bottom: 1.5rem; font-size: 1.75rem; }
+    .loc-block { margin-bottom: 1.5rem; }
+    .loc-block .eyebrow { margin-bottom: 0.35rem; display: block; }
+    .loc-block p, .loc-block a { font-size: 15.5px; color: var(--ink); line-height: 1.6; }
+    .loc-block a { color: var(--navy); border-bottom: 1px solid currentColor; transition: color 0.2s, border-color 0.2s; }
+    .loc-block a:hover { color: var(--teal); border-color: var(--teal); }
+    .hours { display: grid; grid-template-columns: 130px 1fr; row-gap: 6px; font-size: 14px; }
+    .hours span:nth-child(odd) { color: var(--ink-60); }
+    .hours span:nth-child(even) { color: var(--ink); font-variant-numeric: tabular-nums; }
+    .map-wrap {
+      margin-top: 3rem;
+      aspect-ratio: 16/6;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: saturate(0.9) contrast(0.98); }
+
+    /* --- CTA banner --- */
+    .cta-banner {
+      position: relative; overflow: hidden;
+      background-image: linear-gradient(180deg, rgba(15,36,52,0.75) 0%, rgba(15,36,52,0.92) 100%), url('assets/cta-church.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+    .cta-banner-inner { max-width: 620px; margin: 0 auto; text-align: center; color: #fff; }
+    .cta-banner h2 { color: #fff; margin-bottom: 1rem; }
+    .cta-banner h2 em { font-style: italic; color: var(--teal); }
+    .cta-banner p { color: rgba(255,255,255,0.75); font-size: 1.05rem; margin-bottom: 2.5rem; }
+    .cta-banner-actions { display: flex; flex-direction: column; gap: 12px; max-width: 380px; margin: 0 auto; }
+    .cta-banner-actions a {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px;
+      border-radius: 999px;
+      font-size: 15px; font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .cta-banner-actions .primary { background: var(--teal); color: #fff; }
+    .cta-banner-actions .primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .cta-banner-actions .secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .cta-banner-actions .secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      padding: 4rem 0 2rem;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-brand .brand-name-f { font-family: 'Instrument Serif', serif; color: #fff; font-size: 24px; }
+    .footer-brand .brand-name-f span { color: var(--teal); font-style: italic; }
+    .footer-brand p { margin-top: 1rem; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    footer h4 {
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 12px; text-transform: uppercase;
+      letter-spacing: 0.14em; color: #fff;
+      margin-bottom: 1rem;
+    }
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 8px; font-size: 14px; color: rgba(255,255,255,0.65); }
+    footer ul a { font-size: 14px; color: rgba(255,255,255,0.65); transition: color 0.2s; }
+    footer ul a:hover { color: var(--teal); }
+    .footer-bottom {
+      display: flex; justify-content: space-between;
+      padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px; color: rgba(255,255,255,0.5);
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.7); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--teal); }
+
+    /* --- Mobile --- */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links.open {
+        display: flex; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--cream); border-bottom: 1px solid var(--line);
+        flex-direction: column; padding: 1.5rem 4%; gap: 18px; align-items: flex-start;
+      }
+      .hero-grid, .highlight-grid, .treat-head, .skraek-grid, .advice, .loc-card { grid-template-columns: 1fr; }
+      .hero-grid, .skraek-grid { gap: 3rem; }
+      .treat-grid { grid-template-columns: repeat(2, 1fr); }
+      .principles-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .team-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .loc-card { min-height: 0; }
+      .loc-photo { aspect-ratio: 16/9; height: auto; }
+    }
+    @media (max-width: 520px) {
+      .treat-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .advice { padding: 1.75rem; }
+      .trust-strip-inner { flex-direction: column; align-items: flex-start; border-radius: 20px; }
+    }
+
+    /* --- Scroll reveal --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+      will-change: opacity, transform;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal[data-delay="1"].in { transition-delay: 0.08s; }
+    .reveal[data-delay="2"].in { transition-delay: 0.16s; }
+    .reveal[data-delay="3"].in { transition-delay: 0.24s; }
+    .reveal[data-delay="4"].in { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top">
+  <div class="container nav-inner">
+    <a href="#" class="brand" aria-label="Tandkvalitet Nyborg — Forside">
+      <div class="brand-name">Tandkvalitet <span>·</span> Nyborg</div>
+      <div class="brand-sub">Adelgade 5 · 5800 Nyborg</div>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#behandlinger">Behandlinger</a>
+      <a href="#implantater">Implantater</a>
+      <a href="#tandlaeger">Tandlæger</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="tel:+4565313300" class="call-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        65 31 33 00
+      </a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Åbn menu" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow"><span class="eyebrow">Tandlæge i Nyborg</span></div>
+        <h1>Dine tænder. <em>Dit smil.</em></h1>
+        <p class="hero-lede">
+          Tandlægerne i Nyborg har siden august 2024 været drevet af Hana El-khawaga og Allan Friis Pedersen. Vi behandler vore patienter professionelt på et højt fagligt niveau — i rolige og behagelige omgivelser.
+        </p>
+        <div class="rating-badge">
+          <span class="rating-stars">★★★★★</span>
+          <strong>4,7 på Google</strong>
+          <span class="rating-src">· 7 anmeldelser</span>
+        </div>
+        <div class="hero-cta">
+          <a href="tel:+4565313300" class="cta-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Bestil tid — 65 31 33 00
+          </a>
+          <a href="#behandlinger" class="cta-secondary">Se behandlinger</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Klinikkens specialer">
+        <div>
+          <div class="hero-card-eyebrow">Vores speciale</div>
+          <div class="hero-card-title">Avanceret implantologi — med henvisninger fra hele landet.</div>
+          <ul class="specialty-list">
+            <li><span class="specialty-name">All-on-4</span><span class="specialty-sub">Faste tænder</span></li>
+            <li><span class="specialty-name">Kirurgi</span><span class="specialty-sub">Guided surgery</span></li>
+            <li><span class="specialty-name">A-PRF</span><span class="specialty-sub">Heling</span></li>
+            <li><span class="specialty-name">Narkose</span><span class="specialty-sub">Tandlægeskræk</span></li>
+          </ul>
+        </div>
+        <div class="hero-card-foot">Pionerer i All-on-4 · Fagligt opdateret · Fuldt digitaliseret</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-strip-inner">
+      <span><span class="check">★</span> <strong>4,7 på Google</strong> · 7 anmeldelser</span>
+      <span><span class="check">✓</span> All-on-4 pionerer i Danmark</span>
+      <span><span class="check">✓</span> Henvisninger fra hele landet</span>
+      <span><span class="check">✓</span> Fokus på tandlægeskræk</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRINCIPLES -->
+<section class="principles-wrap">
+  <div class="container">
+   <div class="principles">
+    <div class="principles-grid">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <h3>Højt fagligt niveau</h3>
+        <p>Din tandlæge er Hana eller Allan — indehaverne selv. Du møder ikke en roterende stab, og din behandling overdrages ikke mellem vagter.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <h3>Rolige omgivelser</h3>
+        <p>Op til 40% af voksne har tandlægeskræk. Hana har særlig erfaring med angstpatienter — vi arbejder i dit tempo og du bestemmer pauserne.</p>
+      </div>
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <h3>Implantologi som speciale</h3>
+        <p>Allan var blandt de første i Danmark med All-on-4. Kolleger henviser komplekse sager hertil for guided surgery, A-PRF og knogerekonstruktion.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+</section>
+
+<!-- IMPLANTATER HIGHLIGHT -->
+<section class="highlight" id="implantater">
+  <div class="container">
+    <div class="highlight-grid">
+      <div class="highlight-panel">
+        <div class="hp-top">
+          <span class="eyebrow">Vores nationale speciale</span>
+          <div class="hp-mono">All-on-4<br><span>En dag.</span><br>Faste tænder.</div>
+        </div>
+        <div class="hp-bottom">
+          <div><strong>1 time</strong>Guidet kirurgi</div>
+          <div><strong>Dag 1</strong>Faste tænder monteret</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Avanceret implantologi</span>
+        <h2>Pionerer i All-on-4, guided surgery og knogerekonstruktion.</h2>
+        <p class="highlight-lede">
+          Vi var blandt de første i Danmark, der udførte All-on-4 behandlingen. Vores viden indenfor rodbehandling og kirurgi gør, at vi udfører disse opgaver på patienter, der er henvist fra tandlæger over hele landet.
+        </p>
+        <ul class="highlight-features">
+          <li><strong>All-on-4</strong> — Fuld kæbebro på 4 implantater. Faste tænder samme dag.</li>
+          <li><strong>Guided Surgery</strong> — CT-scanning og 3D-planlægning. Nye tænder på implantater på 1 time.</li>
+          <li><strong>Knogerekonstruktion</strong> — Genopbygning med din egen knogle og moderne materialer.</li>
+          <li><strong>A-PRF</strong> — Dit eget blod stimulerer sårheling efter kirurgiske indgreb.</li>
+        </ul>
+        <a href="#kontakt" class="cta-secondary">Book en samtale om mulighederne</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEHANDLINGER -->
+<section id="behandlinger">
+  <div class="container">
+    <div class="treat-head">
+      <div>
+        <span class="eyebrow">Behandlinger</span>
+        <h2>Alle former for forebyggelse og behandling.</h2>
+      </div>
+      <p>Klinikken dækker hele spektret — fra det rutinemæssige eftersyn til omfattende tandsanering, kirurgi og implantater. Vores priser følger <a href="https://www.tandlaegeforeningen.dk/" target="_blank" rel="noopener">Tandlægeforeningens overenskomst</a> samt sundhed.dk.</p>
+    </div>
+
+    <div class="treat-grid">
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/" target="_blank" rel="noopener">
+        <span class="treat-num">01</span>
+        <h3>Caries</h3>
+        <p>Behandling af huller i tænderne — fyldninger og forebyggelse.</p>
+      </a>
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/tandkoedsbetaendelse/" target="_blank" rel="noopener">
+        <span class="treat-num">02</span>
+        <h3>Paradentose</h3>
+        <p>Behandling af tandkødsbetændelse og knogletab omkring tænderne.</p>
+      </a>
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/" target="_blank" rel="noopener">
+        <span class="treat-num">03</span>
+        <h3>Rodbehandling</h3>
+        <p>Fjernelse af betændt væv i tandens rodkanal — så vi bevarer din egen tand.</p>
+      </a>
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/" target="_blank" rel="noopener">
+        <span class="treat-num">04</span>
+        <h3>Kroner og broer</h3>
+        <p>Faste erstatninger der genskaber funktion og æstetik.</p>
+      </a>
+      <a class="treat-card" href="#implantater">
+        <span class="treat-num">05</span>
+        <h3>Implantater</h3>
+        <p>Kunstige tandrødder som fundament for kroner og broer.</p>
+      </a>
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/visdomstaender/" target="_blank" rel="noopener">
+        <span class="treat-num">06</span>
+        <h3>Visdomstænder</h3>
+        <p>Vurdering og eventuelt fjernelse af visdomstænder.</p>
+      </a>
+      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/" target="_blank" rel="noopener">
+        <span class="treat-num">07</span>
+        <h3>Proteser</h3>
+        <p>Hel- og delproteser ved tab af flere tænder.</p>
+      </a>
+      <a href="#kontakt" class="treat-card treat-cta">
+        <span class="treat-num">Bestil tid</span>
+        <h3>Har du spørgsmål?</h3>
+        <p>Ring 65 31 33 00 eller skriv til os — det koster ikke noget at spørge.</p>
+      </a>
+    </div>
+
+    <div class="advice">
+      <div>
+        <span class="eyebrow" style="display:block; margin-bottom:0.75rem;">Råd og vejledning</span>
+        <h3>Spørg os — det koster ikke noget at spørge.</h3>
+      </div>
+      <div>
+        <p>Er du i tvivl eller mangler du et godt råd, er vi naturligvis behjælpelige. Det kunne for eksempel være om:</p>
+        <div class="advice-tags">
+          <span>Dårlig ånde</span>
+          <span>Graviditet og tænder</span>
+          <span>Kost og tandvelvære</span>
+          <span>Hyppighed af besøg</span>
+          <span>Syreerosion</span>
+          <span>Hvis du slår en tand ud</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TANDLÆGESKRÆK -->
+<section id="tandlaegeskraek">
+  <div class="container">
+    <div class="skraek-grid">
+      <div class="skraek-photo">
+        <img src="assets/tandlaegeskraek-waiting.jpg" alt="Roligt venteområde med bløde stole">
+      </div>
+      <div class="skraek-content">
+        <span class="eyebrow">Vi forstår dig</span>
+        <h2>Lider du af <em>tandlægeskræk?</em></h2>
+        <p>Faktisk har op til 40% af alle voksne tandlægeskræk. Du er langt fra den eneste.</p>
+        <p>Derfor tilstræber vi at gøre dit besøg så behageligt som muligt. Vi behandler altid i dit tempo, og du bestemmer hvornår vi holder pause. Hana interesserer sig særligt for angstpatienter og yder altid en omsorgsfuld behandling.</p>
+        <ul class="skraek-features">
+          <li>Behandling i dit tempo — du bestemmer pauserne</li>
+          <li>Forklar-først tilgang inden ethvert indgreb</li>
+          <li>Ofte kureret på 1–2 besøg</li>
+          <li>Mulighed for narkose ved omfattende indgreb</li>
+        </ul>
+        <a href="tel:+4565313300" class="cta-secondary">Ring for en tryg start</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="tandlaeger">
+  <div class="container">
+    <div class="team-head">
+      <span class="eyebrow">Tandlægerne</span>
+      <h2>To tandlæger, <em>én klinik.</em></h2>
+      <p>Begge indehavere. Du bliver altid set af en tandlæge — aldrig kun af en assistent.</p>
+    </div>
+
+    <div class="team-grid">
+
+      <article class="dentist-card">
+        <div class="dentist-photo">
+          <img src="assets/hana-portrait.jpg" alt="Tandlæge Hana El-khawaga">
+          <div class="badge">Indehaver</div>
+        </div>
+        <h3>Hana El-khawaga</h3>
+        <div class="dentist-meta">Parodontose · Angstbehandling</div>
+        <p>Bred erfaring med tandlægeskræk, paradentosebehandling og rodbehandlinger. Yder altid en perfektionistisk og omsorgsfuld behandling.</p>
+      </article>
+
+      <article class="dentist-card">
+        <div class="dentist-photo">
+          <img src="assets/allan-portrait.jpg" alt="Tandlæge Allan Friis Pedersen">
+          <div class="badge">Indehaver</div>
+        </div>
+        <h3>Allan Friis Pedersen</h3>
+        <div class="dentist-meta">Kirurgi · Implantologi</div>
+        <p>Specialiseret i kirurgi og implantologi med avancerede rekonstruktioner. Konsulent for andre tandlæger og opererer for klinikker landet over.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<section class="quote-wrap">
+  <div class="container">
+    <div class="quote-block">
+      <div class="quote-inner">
+        <blockquote>
+          Det har altid været det vigtigste for os at behandle vore patienter professionelt på et højt fagligt niveau — og i afslappede og behagelige omgivelser.
+        </blockquote>
+        <cite>Hana &amp; Allan — Indehavere</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOKATIONER / KONTAKT -->
+<section id="kontakt">
+  <div class="container">
+    <div class="loc-head">
+      <span class="eyebrow">Find os</span>
+      <h2>Adelgade 5, midt i Nyborg.</h2>
+      <p>Ring i telefontiden, skriv til os, eller kig forbi på en hverdag.</p>
+    </div>
+
+    <div class="loc-card">
+      <div class="loc-photo">
+        <img src="assets/lokation-exterior.jpg" alt="Tandkvalitet, Adelgade 5, Nyborg — facade">
+      </div>
+      <div class="loc-details">
+        <h3>Tandkvalitet Nyborg</h3>
+
+        <div class="loc-block">
+          <span class="eyebrow">Adresse</span>
+          <p>Adelgade 5<br>5800 Nyborg</p>
+        </div>
+
+        <div class="loc-block">
+          <span class="eyebrow">Telefon</span>
+          <p><a href="tel:+4565313300">65 31 33 00</a></p>
+          <p style="font-size:13px; color:var(--ink-60); margin-top:4px;">Telefontid: hverdage 08:00 – 12:00</p>
+        </div>
+
+        <div class="loc-block">
+          <span class="eyebrow">E-mail</span>
+          <p><a href="mailto:info@tandkvalitet.dk">info@tandkvalitet.dk</a></p>
+        </div>
+
+        <div class="loc-block">
+          <span class="eyebrow">Åbningstider</span>
+          <div class="hours">
+            <span>Man – Tor</span><span>08:00 – 15:00</span>
+            <span>Fredag</span><span>08:00 – 14:00</span>
+            <span>Hver 2. onsdag</span><span>12:30 – 18:00</span>
+          </div>
+        </div>
+
+        <div class="loc-block" style="margin-bottom:0;">
+          <span class="eyebrow">Akut udenfor åbningstid</span>
+          <p style="font-size:14px;">Tandlægevagten Fyn: <a href="tel:+4599440809">99 44 08 09</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Adelgade+5,+5800+Nyborg&t=m&z=16&output=embed&iwloc=near"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Google Maps — Adelgade 5, 5800 Nyborg"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner-inner">
+      <span class="eyebrow" style="color: var(--teal);">Book en tid</span>
+      <h2>Ring eller skriv — vi vender <em>hurtigt tilbage.</em></h2>
+      <p>Ring i telefontiden (08:00 — 12:00) eller send en mail. Vi modtager nye patienter.</p>
+      <div class="cta-banner-actions">
+        <a href="tel:+4565313300" class="primary">
+          <span>Ring 65 31 33 00</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+        <a href="mailto:info@tandkvalitet.dk" class="secondary">
+          <span>Send en mail</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name-f">Tandkvalitet <span>·</span> Nyborg</div>
+        <p>Professionel tandpleje på Adelgade. Implantologi som speciale, rolige omgivelser og plads til tandlægeskræk.</p>
+      </div>
+      <div>
+        <h4>Klinik</h4>
+        <ul>
+          <li><a href="#behandlinger">Behandlinger</a></li>
+          <li><a href="#implantater">Implantater</a></li>
+          <li><a href="#tandlaeger">Tandlæger</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>Adelgade 5</li>
+          <li>5800 Nyborg</li>
+          <li><a href="tel:+4565313300">65 31 33 00</a></li>
+          <li><a href="mailto:info@tandkvalitet.dk">info@tandkvalitet.dk</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://www.tandlaegeforeningen.dk/" target="_blank" rel="noopener">Tandlægeforeningen</a></li>
+          <li><a href="https://www.sundhed.dk/" target="_blank" rel="noopener">Sundhed.dk</a></li>
+          <li><a href="https://www.sygeforsikring.dk/" target="_blank" rel="noopener">Sygeforsikring Danmark</a></li>
+          <li><a href="https://www.regionsyddanmark.dk/wm211080" target="_blank" rel="noopener">Tandlægevagten Fyn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Tandkvalitet Nyborg — Hana El-khawaga &amp; Allan Friis Pedersen</div>
+      <div><a href="#">Privatlivspolitik</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  (function () {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealSelectors = [
+      '.hero h1', '.hero-lede', '.rating-badge', '.hero-cta', '.hero-card',
+      '.trust-strip-inner',
+      '.principle',
+      '.highlight-panel', '.highlight h2', '.highlight-lede', '.highlight-features li', '.highlight .cta-secondary',
+      '.treat-head > div', '.treat-head p', '.treat-card', '.advice',
+      '.skraek-photo', '.skraek-content',
+      '.team-head', '.dentist-card',
+      '.quote-block',
+      '.loc-head', '.loc-card', '.map-wrap',
+      '.cta-banner-inner',
+      '.footer-top > div'
+    ];
+    var els = document.querySelectorAll(revealSelectors.join(','));
+
+    if (prefersReduced || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+
+    els.forEach(function (el) {
+      el.classList.add('reveal');
+      var parent = el.parentElement;
+      var sameSiblings = parent ? Array.prototype.filter.call(parent.children, function (c) {
+        return c.className === el.className;
+      }) : [el];
+      var idx = sameSiblings.indexOf(el);
+      if (idx > 0 && idx < 5) el.setAttribute('data-delay', String(idx));
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  (function () {
+    var nav = document.querySelector('nav.top');
+    if (!nav) return;
+    var onScroll = function () {
+      if (window.scrollY > 8) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
+
+</body>
 </html>
