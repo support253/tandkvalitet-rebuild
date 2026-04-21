@@ -214,64 +214,27 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
-    .hero-card {
+    .hero-photo-wrap {
       position: relative;
-      color: #fff;
-      padding: clamp(2.5rem, 4vw, 3.5rem);
-      border-radius: 28px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      display: flex; flex-direction: column; justify-content: space-between;
-      background-image: linear-gradient(180deg, rgba(15,36,52,0.78) 0%, rgba(15,36,52,0.92) 100%), url('assets/hero-reception.jpg');
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
+      display: flex; align-items: flex-end; justify-content: center;
+      min-height: 520px;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
     }
-    .hero-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -40px rgba(15,36,52,0.5); }
-    .hero-card::before {
-      content: ''; position: absolute; right: -80px; bottom: -80px;
-      width: 280px; height: 280px; border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(43,174,181,0.28), transparent 70%);
+    .hero-photo-wrap:hover { transform: translateY(-4px); }
+    .hero-photo-disc {
+      position: absolute;
+      width: min(92%, 520px);
+      aspect-ratio: 1 / 1;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -48%);
+      background: radial-gradient(circle at center, rgba(43,174,181,0.22), rgba(43,174,181,0.08) 45%, transparent 72%);
       pointer-events: none;
+      z-index: 0;
     }
-    .hero-card-eyebrow {
-      font-size: 12px; text-transform: uppercase;
-      letter-spacing: 0.18em; color: rgba(255,255,255,0.75);
-      font-weight: 600; margin-bottom: 1rem;
-    }
-    .hero-card-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(1.35rem, 2vw, 1.65rem);
-      font-style: italic; font-weight: 400;
-      margin-bottom: 2rem; line-height: 1.25;
-      max-width: 16ch;
-    }
-    .specialty-list { list-style: none; position: relative; z-index: 1; }
-    .specialty-list li {
-      display: grid; grid-template-columns: 1fr auto;
-      gap: 1rem; align-items: baseline;
-      padding: 1.1rem 0;
-      border-top: 1px solid rgba(255,255,255,0.18);
-    }
-    .specialty-list li:last-child { border-bottom: 1px solid rgba(255,255,255,0.18); }
-    .specialty-name {
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(1.5rem, 2.2vw, 1.9rem);
-      font-style: italic;
-    }
-    .specialty-sub {
-      font-size: 12px; text-transform: uppercase;
-      letter-spacing: 0.1em; color: rgba(255,255,255,0.72);
-      text-align: right;
-    }
-    .hero-card-foot {
+    .hero-photo {
       position: relative; z-index: 1;
-      font-size: 13px; color: rgba(255,255,255,0.75);
-      display: flex; align-items: center; gap: 10px;
-      margin-top: 2rem;
-    }
-    .hero-card-foot::before {
-      content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.5);
+      width: 100%; max-width: 560px; height: auto;
+      filter: drop-shadow(0 20px 40px rgba(15,36,52,0.12));
     }
 
     /* --- Trust strip --- */
@@ -763,19 +726,10 @@
           <a href="#behandlinger" class="cta-secondary">Se behandlinger</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Klinikkens specialer">
-        <div>
-          <div class="hero-card-eyebrow">Vores speciale</div>
-          <div class="hero-card-title">Avanceret implantologi — med henvisninger fra hele landet.</div>
-          <ul class="specialty-list">
-            <li><span class="specialty-name">All-on-4</span><span class="specialty-sub">Faste tænder</span></li>
-            <li><span class="specialty-name">Kirurgi</span><span class="specialty-sub">Guided surgery</span></li>
-            <li><span class="specialty-name">A-PRF</span><span class="specialty-sub">Heling</span></li>
-            <li><span class="specialty-name">Narkose</span><span class="specialty-sub">Tandlægeskræk</span></li>
-          </ul>
-        </div>
-        <div class="hero-card-foot">Pionerer i All-on-4 · Fagligt opdateret · Fuldt digitaliseret</div>
-      </aside>
+      <div class="hero-photo-wrap" aria-hidden="true">
+        <div class="hero-photo-disc"></div>
+        <img src="assets/team-duo.png" alt="" class="hero-photo">
+      </div>
     </div>
   </div>
 </section>
@@ -1135,7 +1089,7 @@
   (function () {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var revealSelectors = [
-      '.hero h1', '.hero-lede', '.rating-badge', '.hero-cta', '.hero-card',
+      '.hero h1', '.hero-lede', '.rating-badge', '.hero-cta', '.hero-photo-wrap',
       '.trust-strip-inner',
       '.principle',
       '.highlight-panel', '.highlight h2', '.highlight-lede', '.highlight-features li', '.highlight .cta-secondary',
