@@ -498,11 +498,11 @@
       max-width: 900px; margin: 0 auto;
     }
     .dentist-card {
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      padding: 2.75rem 2rem;
+      display: flex; flex-direction: column;
       border-radius: 24px;
       background: #fff;
       border: 1px solid var(--line);
+      overflow: hidden;
       transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease, border-color 0.3s;
     }
     .dentist-card:hover {
@@ -511,39 +511,38 @@
       border-color: var(--teal);
     }
     .dentist-photo {
-      width: 160px; height: 160px;
-      border-radius: 50%; overflow: hidden; position: relative;
-      margin-bottom: 1.5rem;
+      aspect-ratio: 4/5;
+      overflow: hidden;
       background: var(--paper);
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 1px var(--line);
-      transition: box-shadow 0.3s;
     }
-    .dentist-card:hover .dentist-photo { box-shadow: 0 0 0 1px var(--teal); }
     .dentist-photo img {
       width: 100%; height: 100%; object-fit: cover; object-position: center top;
       transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
     }
-    .dentist-card:hover .dentist-photo img { transform: scale(1.06); }
-    .dentist-photo .badge {
-      position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
-      background: var(--teal); color: #fff;
-      padding: 4px 12px; font-size: 10px;
+    .dentist-card:hover .dentist-photo img { transform: scale(1.04); }
+    .dentist-body { padding: 1.75rem 1.75rem 2rem; }
+    .dentist-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 0.5rem;
+    }
+    .dentist-card h3 {
+      font-family: 'Instrument Serif', serif; font-size: 1.75rem;
+      color: var(--navy); letter-spacing: -0.01em; line-height: 1.1;
+      margin: 0;
+    }
+    .badge-pill {
+      background: var(--teal-soft); color: var(--teal-dark);
+      padding: 5px 12px; font-size: 10px;
       text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
       border-radius: 999px; white-space: nowrap;
-      transition: transform 0.3s;
-    }
-    .dentist-card:hover .dentist-photo .badge { transform: translateX(-50%) translateY(-2px); }
-    .dentist-card h3 {
-      font-family: 'Instrument Serif', serif; font-size: 1.85rem;
-      color: var(--navy); margin-bottom: 0.3rem; letter-spacing: -0.01em;
+      flex-shrink: 0;
     }
     .dentist-meta {
       font-size: 12px; color: var(--teal);
       text-transform: uppercase; letter-spacing: 0.14em;
       font-weight: 600; margin-bottom: 1rem;
     }
-    .dentist-card p { font-size: 15px; color: var(--ink-60); line-height: 1.6; }
+    .dentist-card p { font-size: 14px; color: var(--ink-60); line-height: 1.6; }
 
     /* --- Pullquote --- */
     .quote-wrap { padding: clamp(2rem, 4vw, 3rem) 0; }
@@ -962,21 +961,29 @@
       <article class="dentist-card">
         <div class="dentist-photo">
           <img src="assets/hana-portrait.jpg" alt="Tandlæge Hana El-khawaga">
-          <div class="badge">Indehaver</div>
         </div>
-        <h3>Hana El-khawaga</h3>
-        <div class="dentist-meta">Parodontose · Angstbehandling</div>
-        <p>Bred erfaring med tandlægeskræk, paradentosebehandling og rodbehandlinger. Yder altid en perfektionistisk og omsorgsfuld behandling.</p>
+        <div class="dentist-body">
+          <div class="dentist-head">
+            <h3>Hana El-khawaga</h3>
+            <span class="badge-pill">Indehaver</span>
+          </div>
+          <div class="dentist-meta">Parodontose · Angstbehandling</div>
+          <p>Bred erfaring med tandlægeskræk, paradentosebehandling og rodbehandlinger. Yder altid en perfektionistisk og omsorgsfuld behandling.</p>
+        </div>
       </article>
 
       <article class="dentist-card">
         <div class="dentist-photo">
           <img src="assets/allan-portrait.jpg" alt="Tandlæge Allan Friis Pedersen">
-          <div class="badge">Indehaver</div>
         </div>
-        <h3>Allan Friis Pedersen</h3>
-        <div class="dentist-meta">Kirurgi · Implantologi</div>
-        <p>Specialiseret i kirurgi og implantologi med avancerede rekonstruktioner. Konsulent for andre tandlæger og opererer for klinikker landet over.</p>
+        <div class="dentist-body">
+          <div class="dentist-head">
+            <h3>Allan Friis Pedersen</h3>
+            <span class="badge-pill">Indehaver</span>
+          </div>
+          <div class="dentist-meta">Kirurgi · Implantologi</div>
+          <p>Specialiseret i kirurgi og implantologi med avancerede rekonstruktioner. Konsulent for andre tandlæger og opererer for klinikker landet over.</p>
+        </div>
       </article>
 
     </div>
