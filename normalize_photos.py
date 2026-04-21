@@ -30,15 +30,23 @@ MAX_DIM = 2000
 QUALITY = 85
 
 # Service card thumbnails are rendered in a short landscape strip (h-32 ~= 128px).
-# Force-fit these slots to a wide 2:1 crop so portrait sources don't get squeezed to
-# a useless vertical sliver.
-SERVICE_SLOTS = {"service-generel.jpg", "service-kirurgi.jpg", "service-kroner.jpg", "service-akut.jpg"}
+# Force-fit these slots to a wide 2:1 crop. Per-slot centering so subject lands
+# in the visible strip rather than cropping it out.
 SERVICE_SIZE = (1400, 700)  # 2:1 landscape
+SERVICE_CENTERING = {
+    "service-generel.jpg": (0.5, 0.5),
+    "service-kirurgi.jpg": (0.5, 0.3),   # bias up — show hands/action, cut drape
+    "service-kroner.jpg":  (0.5, 0.5),
+    "service-akut.jpg":    (0.5, 0.5),
+}
 
-# Team portraits: pre-crop to the card aspect (4:5) centered around upper-mid so
-# the face/shoulders fill the frame instead of leaving wall above the head.
-PORTRAIT_SLOTS = {"allan-portrait.jpg", "hana-portrait.jpg"}
-PORTRAIT_SIZE = (1200, 1500)  # 4:5 portrait, face-biased centering below
+# Team portraits: pre-crop to the card aspect (4:5) with per-subject centering
+# so the face/shoulders fill the frame, not wall above the head.
+PORTRAIT_SIZE = (1200, 1500)  # 4:5 portrait
+PORTRAIT_CENTERING = {
+    "allan-portrait.jpg": (0.5, 0.8),   # Allan framed very loose → strong down-bias
+    "hana-portrait.jpg":  (0.5, 0.55),  # Hana framed tighter → moderate bias
+}
 
 for slot, src_name in FINALISTS.items():
     src_path = SRC / src_name
@@ -53,12 +61,10 @@ for slot, src_name in FINALISTS.items():
     if img.mode != "RGB":
         img = img.convert("RGB")
     # Crop/resize depending on slot
-    if slot in SERVICE_SLOTS:
-        img = ImageOps.fit(img, SERVICE_SIZE, Image.LANCZOS, centering=(0.5, 0.5))
-    elif slot in PORTRAIT_SLOTS:
-        # centering y=0.35 biases the crop upward so face sits in upper-middle
-        # of the card rather than leaving empty wall above the head
-        img = ImageOps.fit(img, PORTRAIT_SIZE, Image.LANCZOS, centering=(0.5, 0.35))
+    if slot in SERVICE_CENTERING:
+        img = ImageOps.fit(img, SERVICE_SIZE, Image.LANCZOS, centering=SERVICE_CENTERING[slot])
+    elif slot in PORTRAIT_CENTERING:
+        img = ImageOps.fit(img, PORTRAIT_SIZE, Image.LANCZOS, centering=PORTRAIT_CENTERING[slot])
     elif max(img.size) > MAX_DIM:
         img.thumbnail((MAX_DIM, MAX_DIM), Image.LANCZOS)
     img.save(dst_path, "JPEG", quality=QUALITY, optimize=True)
