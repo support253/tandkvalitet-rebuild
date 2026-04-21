@@ -164,7 +164,7 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.05fr 1fr;
+      grid-template-columns: 1fr 1.3fr;
       gap: clamp(2.5rem, 5vw, 5rem);
       align-items: center;
     }
@@ -217,24 +217,36 @@
     .hero-photo-wrap {
       position: relative;
       display: flex; align-items: flex-end; justify-content: center;
-      min-height: 520px;
-      transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+      min-height: 580px;
+      border-radius: 28px;
+      overflow: hidden;
+      background-image:
+        linear-gradient(180deg, rgba(15,36,52,0.04) 0%, transparent 20%, transparent 75%, rgba(15,36,52,0.18) 100%),
+        linear-gradient(90deg, rgba(250,248,244,0.45) 0%, rgba(250,248,244,0.0) 25%),
+        url('assets/hero-reception.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 24px 56px -36px rgba(15,36,52,0.28);
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
     }
-    .hero-photo-wrap:hover { transform: translateY(-4px); }
+    .hero-photo-wrap:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 32px 72px -40px rgba(15,36,52,0.4);
+    }
     .hero-photo-disc {
       position: absolute;
-      width: min(92%, 520px);
+      width: min(90%, 560px);
       aspect-ratio: 1 / 1;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -48%);
-      background: radial-gradient(circle at center, rgba(43,174,181,0.22), rgba(43,174,181,0.08) 45%, transparent 72%);
+      top: 55%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle at center, rgba(43,174,181,0.38), rgba(43,174,181,0.12) 45%, transparent 72%);
       pointer-events: none;
       z-index: 0;
     }
     .hero-photo {
       position: relative; z-index: 1;
-      width: 100%; max-width: 560px; height: auto;
-      filter: drop-shadow(0 20px 40px rgba(15,36,52,0.12));
+      width: 94%; max-width: 620px; height: auto;
+      filter: drop-shadow(0 20px 40px rgba(15,36,52,0.25));
     }
 
     /* --- Trust strip --- */
