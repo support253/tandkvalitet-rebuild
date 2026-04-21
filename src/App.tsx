@@ -74,7 +74,7 @@ export default function App() {
         <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
           <a href="#" className="flex flex-col">
             <span className={`text-[15px] font-semibold tracking-[-0.01em] transition-colors ${navScrolled ? 'text-ink' : 'text-white'}`}>
-              Tandlægerne i Munkebo <span className={`font-normal transition-colors ${navScrolled ? 'text-ink-muted' : 'text-white/60'}`}>&</span> Nyborg
+              Tandkvalitet <span className={`font-normal transition-colors ${navScrolled ? 'text-ink-muted' : 'text-white/60'}`}>·</span> Nyborg
             </span>
             <span className={`text-[10px] italic transition-colors ${navScrolled ? 'text-ink-faint' : 'text-white/40'}`}>Dine tænder - dit smil</span>
           </a>
@@ -118,7 +118,7 @@ export default function App() {
             <a href="#find-os" className={`transition-colors ${navScrolled ? 'hover:text-ink' : 'hover:text-white'}`}>Kontakt</a>
             <a href="https://www.sundhed.dk" target="_blank" rel="noopener noreferrer" className={`transition-colors ${navScrolled ? 'hover:text-ink' : 'hover:text-white'}`}>Priser</a>
           </div>
-          <a href="tel:65974354" className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all ${
+          <a href="tel:65313300" className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all ${
             navScrolled ? 'bg-accent text-white hover:bg-accent-dark' : 'bg-white/15 text-white hover:bg-white/25 backdrop-blur-sm'
           }`}>
             Book tid
@@ -151,11 +151,11 @@ export default function App() {
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
               className="text-[18px] text-white/70 mt-5 leading-[1.65] font-light max-w-[520px]">
-              Tandlægerne i Munkebo har rødder tilbage til 1961. Vi behandler vore patienter professionelt på et højt fagligt niveau, i afslappede og behagelige omgivelser.
+              Tandlægerne i Nyborg har siden august 2024 været drevet af Allan Friis Pedersen og Hana El-khawaga. Vi behandler vore patienter professionelt på et højt fagligt niveau, i afslappede og behagelige omgivelser.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }}
               className="flex flex-wrap gap-3 mt-8">
-              <a href="tel:65974354" className="bg-accent text-white px-7 py-3.5 rounded-xl text-[14px] font-semibold hover:bg-accent-dark transition-all inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-lg">
+              <a href="tel:65313300" className="bg-accent text-white px-7 py-3.5 rounded-xl text-[14px] font-semibold hover:bg-accent-dark transition-all inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-lg">
                 <Phone className="w-4 h-4" /> Ring og book
               </a>
               <a href="#behandlinger" className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-7 py-3.5 rounded-xl text-[14px] font-medium hover:bg-white/20 transition-all">
@@ -169,7 +169,7 @@ export default function App() {
       {/* Trust strip */}
       <div className="bg-accent text-white">
         <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-wrap justify-between gap-6 text-[13px] font-medium">
-          {['Etableret 1961', '2 klinikker på Fyn', 'Specialister i implantologi', 'Fokus på tandlægeskræk'].map((t, i) => (
+          {['All-on-4 pionerer i Danmark', 'Henvisninger fra hele landet', 'Specialister i implantologi', 'Fokus på tandlægeskræk'].map((t, i) => (
             <div key={i} className="flex items-center gap-2">
               <Check className="w-4 h-4 text-white/60" />
               <span>{t}</span>
@@ -371,7 +371,7 @@ export default function App() {
                   </div>
                 ))}
               </div>
-              <a href="tel:65974354" className="bg-accent text-white px-6 py-3 rounded-xl text-[14px] font-medium hover:bg-accent-dark transition-colors inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-lg">
+              <a href="tel:65313300" className="bg-accent text-white px-6 py-3 rounded-xl text-[14px] font-medium hover:bg-accent-dark transition-colors inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-lg">
                 Ring for en tryg start <ArrowRight className="w-4 h-4" />
               </a>
             </div>
@@ -395,7 +395,7 @@ export default function App() {
                 name: 'Allan Friis Pedersen',
                 role: 'Tandlæge',
                 specialty: 'Kirurgi & Implantologi',
-                loc: 'Munkebo',
+                loc: 'Indehaver',
                 bio: 'Allan interesserer sig specielt for kirurgi og implantologi og tilbyder avancerede rekonstruktioner. Han er konsulent for andre tandlæger og opererer for klinikker landet over.',
                 img: 'https://www.tandkvalitet.dk/wp-content/uploads/2017/05/allan_ok.jpg',
               },
@@ -403,7 +403,7 @@ export default function App() {
                 name: 'Hana El-khawaga',
                 role: 'Tandlæge',
                 specialty: 'Parodontose & Angstbehandling',
-                loc: 'Nyborg',
+                loc: 'Indehaver',
                 bio: 'Hana har bred erfaring og interesserer sig særligt for tandlægeskræk, paradentosebehandling og rodbehandlinger. Hun yder altid en perfektionistisk og omsorgsfuld behandling.',
                 img: 'https://www.tandkvalitet.dk/wp-content/uploads/2023/08/hana2.jpg',
               },
@@ -432,67 +432,55 @@ export default function App() {
         <div className="max-w-[1200px] mx-auto px-6">
           <FadeIn className="text-center mb-14">
             <h2 className="text-[32px] md:text-[40px] font-bold tracking-[-0.02em] text-ink">Find os</h2>
-            <p className="text-ink-muted text-[15px] mt-3">To klinikker på Fyn</p>
+            <p className="text-ink-muted text-[15px] mt-3">Adelgade 5, midt i Nyborg</p>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                name: 'Tandlægerne i Munkebo',
-                address: 'Bycentret 104, 5330 Munkebo',
-                phone: '65 97 43 54',
-                dentist: 'Allan Friis Pedersen',
-                map: 'https://maps.app.goo.gl/Sykjgaj8ryaYq5yD6',
-                img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop',
-              },
-              {
-                name: 'Tandlægerne Adelgade, Nyborg',
-                address: 'Adelgade 5, 5800 Nyborg',
-                phone: '65 31 33 00',
-                dentist: 'Hana El-khawaga',
-                map: 'https://maps.app.goo.gl/bpQ757HEAKsQAwjU6',
-                img: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop',
-              },
-            ].map((loc, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm">
-                <div className="h-44 overflow-hidden">
-                  <img src={loc.img} alt={loc.name} className="w-full h-full object-cover" />
+          <div className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
+            <div className="relative h-[280px] lg:h-auto overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1000&auto=format&fit=crop"
+                alt="Tandkvalitet, Adelgade 5, Nyborg"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+              <h3 className="text-[22px] font-semibold text-ink mb-6">Tandkvalitet Nyborg</h3>
+              <div className="space-y-3 text-[14px]">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                  <span className="text-ink-muted">Adelgade 5, 5800 Nyborg</span>
                 </div>
-                <div className="p-7">
-                  <h3 className="text-[18px] font-semibold text-ink mb-5">{loc.name}</h3>
-                  <div className="space-y-3 text-[14px]">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      <span className="text-ink-muted">{loc.address}</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-4 h-4 text-accent shrink-0" />
-                      <a href={`tel:${loc.phone.replace(/\s/g, '')}`} className="text-ink font-medium hover:text-accent transition-colors">{loc.phone}</a>
-                    </div>
-                  </div>
-                  <div className="border-t border-line mt-5 pt-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Clock className="w-3.5 h-3.5 text-ink-faint" />
-                      <span className="text-[12px] text-ink-faint uppercase tracking-wider font-medium">Åbningstider</span>
-                    </div>
-                    <div className="text-[13px] text-ink-muted space-y-1.5">
-                      <div className="flex justify-between"><span>Man — Tor</span><span className="text-ink font-medium">08:00 — 15:00</span></div>
-                      <div className="flex justify-between"><span>Fredag</span><span className="text-ink font-medium">08:00 — 14:00</span></div>
-                      <div className="flex justify-between"><span>Hver 2. onsdag</span><span className="text-ink font-medium">12:30 — 18:00</span></div>
-                    </div>
-                  </div>
-                  <a
-                    href={loc.map}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[13px] text-accent font-medium mt-5 hover:text-accent-dark transition-colors"
-                  >
-                    Åbn i Google Maps <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-accent shrink-0" />
+                  <a href="tel:65313300" className="text-ink font-medium hover:text-accent transition-colors">65 31 33 00</a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-accent shrink-0" />
+                  <a href="mailto:info@tandkvalitet.dk" className="text-ink font-medium hover:text-accent transition-colors">info@tandkvalitet.dk</a>
                 </div>
               </div>
-            ))}
+              <div className="border-t border-line mt-6 pt-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <Clock className="w-3.5 h-3.5 text-ink-faint" />
+                  <span className="text-[12px] text-ink-faint uppercase tracking-wider font-medium">Åbningstider</span>
+                </div>
+                <div className="text-[13px] text-ink-muted space-y-1.5">
+                  <div className="flex justify-between"><span>Man — Tor</span><span className="text-ink font-medium">08:00 — 15:00</span></div>
+                  <div className="flex justify-between"><span>Fredag</span><span className="text-ink font-medium">08:00 — 14:00</span></div>
+                  <div className="flex justify-between"><span>Hver 2. onsdag</span><span className="text-ink font-medium">12:30 — 18:00</span></div>
+                  <div className="flex justify-between pt-1.5 border-t border-line mt-1.5"><span>Telefontid</span><span className="text-ink font-medium">08:00 — 12:00</span></div>
+                </div>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/bpQ757HEAKsQAwjU6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[13px] text-accent font-medium mt-6 hover:text-accent-dark transition-colors"
+              >
+                Åbn i Google Maps <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
           </FadeIn>
         </div>
@@ -514,14 +502,10 @@ export default function App() {
           <p className="text-[15px] text-white/50 leading-relaxed mb-10">
             Ring i telefontiden (08:00 — 12:00) eller send en mail. Vi vender tilbage hurtigst muligt.
           </p>
-          <div className="space-y-3 max-w-[380px] mx-auto">
-            <a href="tel:65974354" className="flex items-center justify-between bg-accent text-white px-6 py-4 rounded-xl font-medium text-[15px] hover:bg-accent-dark transition-colors group w-full">
-              <span>Munkebo — 65 97 43 54</span>
+          <div className="max-w-[380px] mx-auto">
+            <a href="tel:65313300" className="flex items-center justify-between bg-accent text-white px-6 py-4 rounded-xl font-medium text-[15px] hover:bg-accent-dark transition-colors group w-full">
+              <span>Ring til Nyborg — 65 31 33 00</span>
               <Phone className="w-4 h-4 text-white/60 group-hover:text-white transition-colors" />
-            </a>
-            <a href="tel:65313300" className="flex items-center justify-between bg-white/10 text-white px-6 py-4 rounded-xl font-medium text-[15px] hover:bg-white/15 transition-colors group border border-white/10 w-full">
-              <span>Nyborg — 65 31 33 00</span>
-              <Phone className="w-4 h-4 text-white/40 group-hover:text-white/70 transition-colors" />
             </a>
           </div>
           <a href="mailto:info@tandkvalitet.dk" className="inline-flex items-center gap-1.5 text-[13px] text-white/40 mt-6 hover:text-white transition-colors">
@@ -558,14 +542,15 @@ export default function App() {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-[13px]">
             <div>
-              <h4 className="text-white font-medium mb-2 text-[14px]">Munkebo</h4>
-              <p>Bycentret 104, 5330 Munkebo</p>
-              <p>Tlf: 65 97 43 54</p>
-            </div>
-            <div>
-              <h4 className="text-white font-medium mb-2 text-[14px]">Nyborg</h4>
+              <h4 className="text-white font-medium mb-2 text-[14px]">Tandkvalitet Nyborg</h4>
               <p>Adelgade 5, 5800 Nyborg</p>
               <p>Tlf: 65 31 33 00</p>
+            </div>
+            <div>
+              <h4 className="text-white font-medium mb-2 text-[14px]">Åbningstider</h4>
+              <p>Man — Tor: 08:00 — 15:00</p>
+              <p>Fredag: 08:00 — 14:00</p>
+              <p>Hver 2. onsdag: 12:30 — 18:00</p>
             </div>
             <div>
               <h4 className="text-white font-medium mb-2 text-[14px]">Kontakt</h4>
@@ -575,7 +560,7 @@ export default function App() {
             </div>
           </div>
           <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row justify-between items-center text-[11px] gap-4">
-            <p>© 2026 Tandlægerne i Munkebo & Nyborg</p>
+            <p>© 2026 Tandkvalitet Nyborg</p>
             <a href="https://www.sundhed.dk" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">sundhed.dk</a>
           </div>
         </div>
