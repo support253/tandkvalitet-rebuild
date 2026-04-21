@@ -421,7 +421,7 @@ export default function App() {
               },
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="aspect-[3/4] bg-surface overflow-hidden">
+                <div className="aspect-[4/5] bg-surface overflow-hidden">
                   <img src={p.img} alt={p.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="p-6">
