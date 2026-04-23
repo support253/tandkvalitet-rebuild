@@ -214,6 +214,18 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
+    .hero-meta {
+      margin-top: 1.5rem;
+      font-size: 13.5px; color: var(--ink-60);
+      letter-spacing: 0.01em; line-height: 1.55;
+    }
+    .hero-meta strong { color: var(--navy); font-weight: 600; }
+    .hero-akut {
+      margin-top: 0.4rem;
+      font-size: 12.5px; color: var(--ink-60);
+    }
+    .hero-akut a { color: var(--navy); border-bottom: 1px solid var(--line); transition: color 0.2s, border-color 0.2s; }
+    .hero-akut a:hover { color: var(--teal); border-color: var(--teal); }
     .hero-photo-wrap {
       position: relative;
       border-radius: 28px;
@@ -730,20 +742,21 @@
         <div class="hero-eyebrow"><span class="eyebrow">Tandlæge i Nyborg</span></div>
         <h1>Dine tænder. <em>Dit smil.</em></h1>
         <p class="hero-lede">
-          Hana El-khawaga og Allan Friis Pedersen overtog Tandlægerne i Nyborg i august 2024 — med mange års erfaring bag sig. Allan er konsulent og opererer for klinikker i hele landet; Hana har særligt fokus på tandlægeskræk, paradentose og rodbehandling.
+          Hana El-khawaga og Allan Friis Pedersen overtog klinikken på Adelgade 5 (tidligere kendt som <em>Tandlægerne i Nyborg</em>) i august 2024 — med mange års erfaring bag sig. Allan er konsulent og opererer for klinikker i hele landet; Hana har særligt fokus på tandlægeskræk, paradentose og rodbehandling.
         </p>
         <div class="rating-badge">
           <span class="rating-stars">★★★★★</span>
           <strong>4,7 på Google</strong>
-          <span class="rating-src">· 7 anmeldelser</span>
         </div>
         <div class="hero-cta">
           <a href="tel:+4565313300" class="cta-primary">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Bestil tid — 65 31 33 00
+            Ring 65 31 33 00
           </a>
           <a href="#behandlinger" class="cta-secondary">Se behandlinger</a>
         </div>
+        <p class="hero-meta"><strong>Vi modtager nye patienter</strong> · Man–Tor 08–15 · Fre 08–14 · Tidsbestilling 08–12</p>
+        <p class="hero-akut">Akut uden for åbningstid: <a href="tel:+4599440809">Tandlægevagten Fyn — 99 44 08 09</a></p>
       </div>
       <div class="hero-photo-wrap">
         <img src="assets/behandlinger-action.jpg" alt="Tandlæge i behandling hos Tandkvalitet Nyborg" class="hero-photo">
@@ -756,7 +769,7 @@
 <div class="trust-strip">
   <div class="container">
     <div class="trust-strip-inner">
-      <span><span class="check">★</span> <strong>4,7 på Google</strong> · 7 anmeldelser</span>
+      <span><span class="check">✓</span> <strong>4,7 på Google</strong></span>
       <span><span class="check">✓</span> All-on-4 pionerer i Danmark</span>
       <span><span class="check">✓</span> Henvist af andre tandlæger</span>
       <span><span class="check">✓</span> Fokus på tandlægeskræk</span>
@@ -969,7 +982,7 @@
             <span class="badge-pill">Indehaver</span>
           </div>
           <div class="dentist-meta">Parodontose · Angstbehandling</div>
-          <p>Bred erfaring med tandlægeskræk, paradentosebehandling og rodbehandlinger. Yder altid en perfektionistisk og omsorgsfuld behandling.</p>
+          <p>Bred erfaring med tandlægeskræk, behandling af paradentose og rodbehandlinger. Yder altid en perfektionistisk og omsorgsfuld behandling.</p>
         </div>
       </article>
 
@@ -1011,7 +1024,7 @@
     <div class="loc-head">
       <span class="eyebrow">Find os</span>
       <h2>Adelgade 5, midt i Nyborg.</h2>
-      <p>Ring i telefontiden, skriv til os, eller kig forbi på en hverdag.</p>
+      <p>Ring i telefontiden, skriv til os, eller kom forbi efter aftale.</p>
     </div>
 
     <div class="loc-card">
@@ -1136,7 +1149,7 @@
   (function () {
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var revealSelectors = [
-      '.hero h1', '.hero-lede', '.rating-badge', '.hero-cta', '.hero-photo-wrap',
+      '.hero h1', '.hero-lede', '.rating-badge', '.hero-cta', '.hero-meta', '.hero-akut', '.hero-photo-wrap',
       '.trust-strip-inner',
       '.principle',
       '.highlight-panel', '.highlight h2', '.highlight-lede', '.highlight-features li', '.highlight .cta-secondary',
@@ -1156,15 +1169,18 @@
       return;
     }
 
+    // Pass 1: compute stagger delay from DOM position (before mutating className)
     els.forEach(function (el) {
-      el.classList.add('reveal');
+      var baseClass = el.className;
       var parent = el.parentElement;
       var sameSiblings = parent ? Array.prototype.filter.call(parent.children, function (c) {
-        return c.className === el.className;
+        return c.className === baseClass;
       }) : [el];
       var idx = sameSiblings.indexOf(el);
       if (idx > 0 && idx < 5) el.setAttribute('data-delay', String(idx));
     });
+    // Pass 2: add .reveal class (kept separate so pass 1's className check is stable)
+    els.forEach(function (el) { el.classList.add('reveal'); });
 
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
