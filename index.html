@@ -418,6 +418,29 @@
       transform: translateY(-1px);
     }
 
+    /* --- Indblik (klinik photo strip) --- */
+    .indblik { padding: clamp(3rem, 5vw, 5rem) 0 clamp(2rem, 4vw, 3rem); }
+    .indblik-head { text-align: center; max-width: 640px; margin: 0 auto 3rem; }
+    .indblik-head h2 { color: var(--navy); margin-bottom: 0.75rem; }
+    .indblik-head p { color: var(--ink-60); font-size: 1.05rem; }
+    .indblik-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .indblik-figure { margin: 0; display: flex; flex-direction: column; gap: 0.9rem; }
+    .indblik-figure img {
+      width: 100%; aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+    .indblik-figure figcaption {
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-60); font-weight: 500;
+      padding-left: 0.25rem;
+    }
+
     /* --- Tandlægeskræk --- */
     #tandlaegeskraek { background: #fff; }
     .skraek-grid {
@@ -635,7 +658,7 @@
         background: var(--cream); border-bottom: 1px solid var(--line);
         flex-direction: column; padding: 1.5rem 4%; gap: 18px; align-items: flex-start;
       }
-      .hero-grid, .highlight-grid, .treat-head, .skraek-grid, .advice, .loc-card { grid-template-columns: 1fr; }
+      .hero-grid, .highlight-grid, .treat-head, .skraek-grid, .advice, .loc-card, .indblik-grid { grid-template-columns: 1fr; }
       .hero-grid, .skraek-grid { gap: 3rem; }
       .treat-grid { grid-template-columns: repeat(2, 1fr); }
       .principles-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -872,6 +895,35 @@
   </div>
 </section>
 
+<!-- INDBLIK -->
+<section class="indblik">
+  <div class="container">
+    <div class="indblik-head">
+      <span class="eyebrow">Indblik</span>
+      <h2>Et kig ind på klinikken.</h2>
+      <p>Moderne udstyr, lyse rum og fokus på det faglige håndværk.</p>
+    </div>
+    <div class="indblik-grid">
+      <figure class="indblik-figure">
+        <img src="assets/service-generel.jpg" alt="Generel tandpleje hos Tandkvalitet Nyborg">
+        <figcaption>Generel tandpleje</figcaption>
+      </figure>
+      <figure class="indblik-figure">
+        <img src="assets/service-kirurgi.jpg" alt="Kirurgi og implantater">
+        <figcaption>Kirurgi &amp; implantater</figcaption>
+      </figure>
+      <figure class="indblik-figure">
+        <img src="assets/service-kroner.jpg" alt="Kroner og protetisk behandling">
+        <figcaption>Kroner &amp; broer</figcaption>
+      </figure>
+      <figure class="indblik-figure">
+        <img src="assets/service-akut.jpg" alt="Akut behandling">
+        <figcaption>Akut behandling</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- TANDLÆGESKRÆK -->
 <section id="tandlaegeskraek">
   <div class="container">
@@ -1089,6 +1141,7 @@
       '.principle',
       '.highlight-panel', '.highlight h2', '.highlight-lede', '.highlight-features li', '.highlight .cta-secondary',
       '.treat-head > div', '.treat-head p', '.treat-card', '.advice',
+      '.indblik-head', '.indblik-figure',
       '.skraek-photo', '.skraek-content',
       '.team-head', '.dentist-card',
       '.quote-block',
