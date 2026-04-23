@@ -375,7 +375,7 @@
       color: inherit; text-decoration: none;
       display: block; position: relative;
     }
-    .treat-card:hover {
+    a.treat-card:hover {
       background: var(--paper);
       transform: translateY(-3px);
       box-shadow: 0 14px 30px -22px rgba(15,36,52,0.35);
@@ -397,7 +397,7 @@
       display: block;
       transition: transform 0.25s ease;
     }
-    .treat-card:hover .treat-num { transform: translateX(2px); }
+    a.treat-card:hover .treat-num { transform: translateX(2px); }
     .treat-card h3 {
       font-size: 1.15rem; color: var(--navy);
       margin-bottom: 0.5rem;
@@ -778,7 +778,7 @@
       <span><span class="check">✓</span> <strong>4,7 på Google</strong></span>
       <span><span class="check">✓</span> All-on-4 pionerer i Danmark</span>
       <span><span class="check">✓</span> Henvist af andre tandlæger</span>
-      <span><span class="check">✓</span> Fokus på tandlægeskræk</span>
+      <span><span class="check">✓</span> Nye patienter velkomne</span>
     </div>
   </div>
 </div>
@@ -808,38 +808,6 @@
   </div>
 </section>
 
-<!-- IMPLANTATER HIGHLIGHT -->
-<section class="highlight" id="implantater">
-  <div class="container">
-    <div class="highlight-grid">
-      <div class="highlight-panel">
-        <div class="hp-top">
-          <span class="eyebrow">Vores nationale speciale</span>
-          <div class="hp-mono">All-on-4<br><span>En dag.</span><br>Faste tænder.</div>
-        </div>
-        <div class="hp-bottom">
-          <div><strong>1 time</strong>Guidet kirurgi</div>
-          <div><strong>Dag 1</strong>Faste tænder monteret</div>
-        </div>
-      </div>
-      <div>
-        <span class="eyebrow">Avanceret implantologi</span>
-        <h2>Pionerer i All-on-4, guided surgery og knogerekonstruktion.</h2>
-        <p class="highlight-lede">
-          Vi var blandt de første i Danmark, der udførte All-on-4 behandlingen. Vores viden indenfor rodbehandling og kirurgi gør, at vi udfører disse opgaver på patienter, der er henvist fra tandlæger over hele landet.
-        </p>
-        <ul class="highlight-features">
-          <li><strong>All-on-4</strong> — Fuld kæbebro på 4 implantater. Faste tænder samme dag.</li>
-          <li><strong>Guided Surgery</strong> — CT-scanning og 3D-planlægning. Nye tænder på implantater på 1 time.</li>
-          <li><strong>Knogerekonstruktion</strong> — Genopbygning med din egen knogle og moderne materialer.</li>
-          <li><strong>A-PRF</strong> — Dit eget blod stimulerer sårheling efter kirurgiske indgreb.</li>
-        </ul>
-        <a href="#kontakt" class="cta-secondary">Book en samtale om mulighederne</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- BEHANDLINGER -->
 <section id="behandlinger">
   <div class="container">
@@ -852,46 +820,46 @@
     </div>
 
     <div class="treat-grid">
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/" target="_blank" rel="noopener">
+      <a class="treat-card" href="tel:+4565313300">
         <span class="treat-num">01</span>
+        <h3>Akut &amp; tandskader</h3>
+        <p>Revnet, knækket eller slået tand ud? Ring 65 31 33 00 med det samme.</p>
+      </a>
+      <div class="treat-card">
+        <span class="treat-num">02</span>
         <h3>Caries</h3>
         <p>Behandling af huller i tænderne — fyldninger og forebyggelse.</p>
-      </a>
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/tandkoedsbetaendelse/" target="_blank" rel="noopener">
-        <span class="treat-num">02</span>
+      </div>
+      <div class="treat-card">
+        <span class="treat-num">03</span>
         <h3>Paradentose</h3>
         <p>Behandling af tandkødsbetændelse og knogletab omkring tænderne.</p>
-      </a>
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/" target="_blank" rel="noopener">
-        <span class="treat-num">03</span>
+      </div>
+      <div class="treat-card">
+        <span class="treat-num">04</span>
         <h3>Rodbehandling</h3>
         <p>Fjernelse af betændt væv i tandens rodkanal — så vi bevarer din egen tand.</p>
-      </a>
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/" target="_blank" rel="noopener">
-        <span class="treat-num">04</span>
+      </div>
+      <div class="treat-card">
+        <span class="treat-num">05</span>
         <h3>Kroner og broer</h3>
         <p>Faste erstatninger der genskaber funktion og æstetik.</p>
-      </a>
+      </div>
       <a class="treat-card" href="#implantater">
-        <span class="treat-num">05</span>
+        <span class="treat-num">06</span>
         <h3>Implantater</h3>
         <p>Kunstige tandrødder som fundament for kroner og broer.</p>
       </a>
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/visdomstaender/" target="_blank" rel="noopener">
-        <span class="treat-num">06</span>
+      <div class="treat-card">
+        <span class="treat-num">07</span>
         <h3>Visdomstænder</h3>
         <p>Vurdering og eventuelt fjernelse af visdomstænder.</p>
-      </a>
-      <a class="treat-card" href="https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/" target="_blank" rel="noopener">
-        <span class="treat-num">07</span>
+      </div>
+      <div class="treat-card">
+        <span class="treat-num">08</span>
         <h3>Proteser</h3>
         <p>Hel- og delproteser ved tab af flere tænder.</p>
-      </a>
-      <a href="#kontakt" class="treat-card treat-cta">
-        <span class="treat-num">Bestil tid</span>
-        <h3>Har du spørgsmål?</h3>
-        <p>Ring 65 31 33 00 eller skriv til os — det koster ikke noget at spørge.</p>
-      </a>
+      </div>
     </div>
 
     <div class="advice">
@@ -951,6 +919,38 @@
              alt="Akut behandling">
         <figcaption>Akut behandling</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- IMPLANTATER HIGHLIGHT -->
+<section class="highlight" id="implantater">
+  <div class="container">
+    <div class="highlight-grid">
+      <div class="highlight-panel">
+        <div class="hp-top">
+          <span class="eyebrow">Vores nationale speciale</span>
+          <div class="hp-mono">All-on-4<br><span>En dag.</span><br>Faste tænder.</div>
+        </div>
+        <div class="hp-bottom">
+          <div><strong>1 time</strong>Guidet kirurgi</div>
+          <div><strong>Dag 1</strong>Faste tænder monteret</div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Avanceret implantologi</span>
+        <h2>Pionerer i All-on-4, guided surgery og knogerekonstruktion.</h2>
+        <p class="highlight-lede">
+          Vi var blandt de første i Danmark, der udførte All-on-4 behandlingen. Vores viden indenfor rodbehandling og kirurgi gør, at vi udfører disse opgaver på patienter, der er henvist fra tandlæger over hele landet.
+        </p>
+        <ul class="highlight-features">
+          <li><strong>All-on-4</strong> — Fuld kæbebro på 4 implantater. Faste tænder samme dag.</li>
+          <li><strong>Guided Surgery</strong> — CT-scanning og 3D-planlægning. Nye tænder på implantater på 1 time.</li>
+          <li><strong>Knogerekonstruktion</strong> — Genopbygning med din egen knogle og moderne materialer.</li>
+          <li><strong>A-PRF</strong> — Dit eget blod stimulerer sårheling efter kirurgiske indgreb.</li>
+        </ul>
+        <a href="#kontakt" class="cta-secondary">Book en samtale om mulighederne</a>
+      </div>
     </div>
   </div>
 </section>
