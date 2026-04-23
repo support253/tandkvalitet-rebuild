@@ -89,6 +89,7 @@
       --teal: #2baeb5;
       --teal-dark: #1e8a90;
       --teal-soft: #e6f5f6;
+      --teal-ink: #17757a;
       --navy: #0f2434;
       --navy-soft: #1a3a5c;
       --cream: #FAF8F4;
@@ -110,7 +111,7 @@
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: var(--teal);
+      color: var(--teal-ink);
       font-weight: 600;
     }
 
@@ -158,6 +159,7 @@
     }
     .call-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
     .call-btn svg { width: 14px; height: 14px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
     .menu-toggle { display: none; background: none; border: 0; font-size: 14px; font-weight: 500; cursor: pointer; }
 
     /* --- Hero --- */
@@ -392,7 +394,7 @@
     a.treat-card:hover h3 { color: var(--teal); }
     .treat-num {
       font-family: 'Instrument Serif', serif;
-      font-style: italic; color: var(--teal);
+      font-style: italic; color: var(--teal-ink);
       font-size: 14px; margin-bottom: 1rem;
       display: block;
       transition: transform 0.25s ease;
@@ -535,7 +537,7 @@
       flex-shrink: 0;
     }
     .dentist-meta {
-      font-size: 12px; color: var(--teal);
+      font-size: 12px; color: var(--teal-ink);
       text-transform: uppercase; letter-spacing: 0.14em;
       font-weight: 600; margin-bottom: 1rem;
     }
@@ -631,6 +633,11 @@
       border: 1px solid rgba(255,255,255,0.2);
     }
     .cta-banner-actions .secondary:hover { background: rgba(255,255,255,0.2); }
+    .cta-banner-note {
+      text-align: center; font-size: 12px;
+      color: rgba(255,255,255,0.6); margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
 
     /* --- Footer --- */
     footer {
@@ -687,7 +694,21 @@
       .footer-top { grid-template-columns: 1fr; }
       .advice { padding: 1.75rem; }
       .trust-strip-inner { flex-direction: column; align-items: flex-start; border-radius: 20px; }
+      .call-btn { padding: 8px 14px; font-size: 14px; }
+      .call-btn svg { width: 13px; height: 13px; }
+      .brand-sub { display: none; }
+      .nav-right { gap: 8px; }
     }
+
+    /* --- Focus visible (keyboard) --- */
+    *:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .call-btn:focus-visible,
+    .cta-primary:focus-visible { outline-color: var(--navy); }
+    .cta-banner-actions a:focus-visible { outline-color: #fff; }
 
     /* --- Scroll reveal --- */
     .reveal {
@@ -727,13 +748,15 @@
       <a href="#implantater">Implantater</a>
       <a href="#tandlaeger">Tandlæger</a>
       <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <div class="nav-right">
       <a href="tel:+4565313300" class="call-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         65 31 33 00
       </a>
+      <button class="menu-toggle" aria-label="Åbn menu" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
     </div>
-
-    <button class="menu-toggle" aria-label="Åbn menu" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
   </div>
 </nav>
 
@@ -987,8 +1010,8 @@
   <div class="container">
     <div class="team-head">
       <span class="eyebrow">Tandlægerne</span>
-      <h2>To tandlæger, <em>én klinik.</em></h2>
-      <p>Begge indehavere. Du bliver altid set af en tandlæge — aldrig kun af en assistent.</p>
+      <h2>Mød indehaverne.</h2>
+      <p>Begge ejer og driver klinikken. Du bliver altid set af en tandlæge — og vi tager nye patienter løbende.</p>
     </div>
 
     <div class="team-grid">
@@ -1124,6 +1147,7 @@
           <span>Send en mail</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
         </a>
+        <small class="cta-banner-note">Vi svarer inden for 1 arbejdsdag</small>
       </div>
     </div>
   </div>
