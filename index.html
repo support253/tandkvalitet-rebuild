@@ -164,7 +164,7 @@
     }
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
+      grid-template-columns: 1fr 1.1fr;
       gap: clamp(2.5rem, 5vw, 5rem);
       align-items: center;
     }
@@ -216,16 +216,9 @@
     .cta-secondary:hover { color: var(--teal); border-color: var(--teal); }
     .hero-photo-wrap {
       position: relative;
-      display: flex; align-items: flex-end; justify-content: center;
-      min-height: 580px;
       border-radius: 28px;
       overflow: hidden;
-      background-image:
-        linear-gradient(180deg, rgba(15,36,52,0.04) 0%, transparent 20%, transparent 75%, rgba(15,36,52,0.18) 100%),
-        linear-gradient(90deg, rgba(250,248,244,0.45) 0%, rgba(250,248,244,0.0) 25%),
-        url('assets/hero-reception.jpg');
-      background-size: cover;
-      background-position: center;
+      aspect-ratio: 4 / 5;
       box-shadow: 0 24px 56px -36px rgba(15,36,52,0.28);
       transition: transform 0.5s cubic-bezier(.2,.7,.2,1), box-shadow 0.5s ease;
     }
@@ -233,20 +226,10 @@
       transform: translateY(-4px);
       box-shadow: 0 32px 72px -40px rgba(15,36,52,0.4);
     }
-    .hero-photo-disc {
-      position: absolute;
-      width: min(90%, 560px);
-      aspect-ratio: 1 / 1;
-      top: 55%; left: 50%;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle at center, rgba(43,174,181,0.38), rgba(43,174,181,0.12) 45%, transparent 72%);
-      pointer-events: none;
-      z-index: 0;
-    }
     .hero-photo {
-      position: relative; z-index: 1;
-      width: 94%; max-width: 620px; height: auto;
-      filter: drop-shadow(0 20px 40px rgba(15,36,52,0.25));
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* --- Trust strip --- */
@@ -723,7 +706,7 @@
         <div class="hero-eyebrow"><span class="eyebrow">Tandlæge i Nyborg</span></div>
         <h1>Dine tænder. <em>Dit smil.</em></h1>
         <p class="hero-lede">
-          Tandlægerne i Nyborg har siden august 2024 været drevet af Hana El-khawaga og Allan Friis Pedersen. Vi behandler vore patienter professionelt på et højt fagligt niveau — i rolige og behagelige omgivelser.
+          Hana El-khawaga og Allan Friis Pedersen overtog Tandlægerne i Nyborg i august 2024 — med mange års erfaring bag sig. Allan er konsulent og opererer for klinikker i hele landet; Hana har særligt fokus på tandlægeskræk, paradentose og rodbehandling.
         </p>
         <div class="rating-badge">
           <span class="rating-stars">★★★★★</span>
@@ -738,9 +721,8 @@
           <a href="#behandlinger" class="cta-secondary">Se behandlinger</a>
         </div>
       </div>
-      <div class="hero-photo-wrap" aria-hidden="true">
-        <div class="hero-photo-disc"></div>
-        <img src="assets/team-duo.png" alt="" class="hero-photo">
+      <div class="hero-photo-wrap">
+        <img src="assets/behandlinger-action.jpg" alt="Tandlæge i behandling hos Tandkvalitet Nyborg" class="hero-photo">
       </div>
     </div>
   </div>
@@ -752,7 +734,7 @@
     <div class="trust-strip-inner">
       <span><span class="check">★</span> <strong>4,7 på Google</strong> · 7 anmeldelser</span>
       <span><span class="check">✓</span> All-on-4 pionerer i Danmark</span>
-      <span><span class="check">✓</span> Henvisninger fra hele landet</span>
+      <span><span class="check">✓</span> Henvist af andre tandlæger</span>
       <span><span class="check">✓</span> Fokus på tandlægeskræk</span>
     </div>
   </div>
