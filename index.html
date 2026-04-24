@@ -160,7 +160,28 @@
     .call-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
     .call-btn svg { width: 14px; height: 14px; }
     .nav-right { display: flex; align-items: center; gap: 12px; }
-    .menu-toggle { display: none; background: none; border: 0; font-size: 14px; font-weight: 500; cursor: pointer; }
+    .menu-toggle {
+      display: none;
+      background: none; border: 0; padding: 0;
+      cursor: pointer;
+      width: 26px; height: 18px;
+      position: relative;
+    }
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: '';
+      position: absolute; left: 0; right: 0;
+      height: 2px; border-radius: 2px;
+      background: var(--navy);
+      transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease, bottom 0.25s ease;
+    }
+    .menu-toggle::before { top: 0; }
+    .menu-toggle span { top: 50%; transform: translateY(-50%); display: block; }
+    .menu-toggle::after { bottom: 0; }
+    .nav-inner:has(.nav-links.open) .menu-toggle::before { top: 50%; transform: translateY(-50%) rotate(45deg); }
+    .nav-inner:has(.nav-links.open) .menu-toggle::after  { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+    .nav-inner:has(.nav-links.open) .menu-toggle span    { opacity: 0; }
 
     /* --- Hero --- */
     .hero {
@@ -820,7 +841,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         65 31 33 00
       </a>
-      <button class="menu-toggle" aria-label="Åbn menu" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
+      <button class="menu-toggle" aria-label="Åbn menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span></button>
     </div>
   </div>
 </nav>
@@ -833,7 +854,7 @@
         <div class="hero-eyebrow"><span class="eyebrow">Tandlæge i Nyborg</span></div>
         <h1>Dine tænder. <em>Dit smil.</em></h1>
         <p class="hero-lede">
-          Hana El-khawaga og Allan Friis Pedersen overtog klinikken på Adelgade 5 (tidligere kendt som <em>Tandlægerne i Nyborg</em>) i august 2024 — med mange års erfaring bag sig. Allan er konsulent og opererer for klinikker i hele landet; Hana har særligt fokus på tandlægeskræk, paradentose og rodbehandling.
+          Hana El-khawaga og Allan Friis Pedersen overtog klinikken i august 2024. Allan opererer for klinikker i hele landet; Hana har særligt fokus på tandlægeskræk.
         </p>
         <div class="rating-badge">
           <span class="rating-stars">★★★★★</span>
