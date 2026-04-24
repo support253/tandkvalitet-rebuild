@@ -184,7 +184,24 @@
       color: var(--navy);
       margin-bottom: 1.5rem;
     }
-    .hero h1 em { font-style: italic; color: var(--teal); }
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(
+        110deg,
+        var(--teal) 0%,
+        var(--teal) 38%,
+        rgba(255,255,255,0.95) 50%,
+        var(--teal) 62%,
+        var(--teal) 100%
+      );
+      background-size: 280% 100%;
+      background-position: 100% 0;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: smil-shine 6s ease-in-out 1.5s infinite;
+    }
     .hero-lede {
       font-size: clamp(1.05rem, 1.3vw, 1.2rem);
       color: var(--ink-60);
@@ -717,6 +734,47 @@
     .call-btn:focus-visible,
     .cta-primary:focus-visible { outline-color: var(--navy); }
     .cta-banner-actions a:focus-visible { outline-color: #fff; }
+
+    /* --- Motion: phone ring + smil shine --- */
+    @keyframes phone-ring {
+      0%, 60%, 100% { transform: rotate(0); }
+      5%  { transform: rotate(-12deg); }
+      10% { transform: rotate(10deg); }
+      15% { transform: rotate(-8deg); }
+      20% { transform: rotate(6deg); }
+      25% { transform: rotate(-4deg); }
+      30% { transform: rotate(0); }
+    }
+    @keyframes phone-ring-fast {
+      0%, 100% { transform: rotate(0); }
+      15% { transform: rotate(-14deg); }
+      30% { transform: rotate(11deg); }
+      45% { transform: rotate(-8deg); }
+      60% { transform: rotate(5deg); }
+      75% { transform: rotate(-2deg); }
+    }
+    @keyframes smil-shine {
+      0%, 100% { background-position: 100% 0; }
+      50%      { background-position: -100% 0; }
+    }
+    .call-btn svg {
+      transform-origin: center;
+      animation: phone-ring 5s ease-out 8s infinite;
+    }
+    .call-btn:hover svg,
+    .cta-primary:hover svg,
+    .cta-banner-actions .primary:hover svg {
+      transform-origin: center;
+      animation: phone-ring-fast 0.8s ease-out;
+    }
+
+    /* --- Hover polish: image zooms + principle lift --- */
+    .indblik-figure img,
+    .loc-photo figure img { transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+    .indblik-figure:hover img,
+    .loc-photo figure:hover img { transform: scale(1.04); }
+    .principle { transition: transform 0.3s cubic-bezier(.2,.7,.2,1); }
+    .principle:hover { transform: translateY(-2px); }
 
     /* --- Scroll reveal --- */
     .reveal {
