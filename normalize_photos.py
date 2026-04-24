@@ -18,7 +18,7 @@ FINALISTS = {
     "allan-portrait.jpg":       "20260421_122611.jpg",
     "implantater-room.jpg":     "20260421_123449.jpg",
     "behandlinger-action.jpg":  "20260421_125938.jpg",
-    "service-generel.jpg":      "20260421_125936.jpg",
+    "service-generel.jpg":      "20260421_125942.jpg",
     "service-kirurgi.jpg":      "20260421_130219.jpg",
     "service-kroner.jpg":       "20260421_124225.jpg",
     "service-akut.jpg":         "20260421_131510.jpg",
