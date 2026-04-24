@@ -200,7 +200,7 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
-      animation: smil-shine 6s ease-in-out 1.5s infinite;
+      animation: smil-shine 14s ease-out 2s infinite;
     }
     .hero-lede {
       font-size: clamp(1.05rem, 1.3vw, 1.2rem);
@@ -754,8 +754,9 @@
       75% { transform: rotate(-2deg); }
     }
     @keyframes smil-shine {
-      0%, 100% { background-position: 100% 0; }
-      50%      { background-position: -100% 0; }
+      0%   { background-position: 100% 0; }
+      14%  { background-position: -100% 0; }
+      100% { background-position: -100% 0; }
     }
     .call-btn svg {
       transform-origin: center;
