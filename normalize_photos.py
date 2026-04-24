@@ -24,6 +24,11 @@ FINALISTS = {
     "service-akut.jpg":         "20260421_131510.jpg",
     "lokation-exterior.jpg":    "20260421_132904.jpg",
     "cta-church.jpg":           "20260421_132933.jpg",
+    # Lokation 2x2 grid (Find os section)
+    "lokation-facade.jpg":      "20260421_133032.jpg",
+    "lokation-sign.jpg":        "20260421_133354.jpg",
+    "lokation-entrance.jpg":    "20260421_132736.jpg",
+    "lokation-door.jpg":        "20260421_132658.jpg",
 }
 
 MAX_DIM = 2000
@@ -48,6 +53,15 @@ PORTRAIT_CENTERING = {
     "hana-portrait.jpg":  (0.5, 0.55),  # Hana framed tighter → moderate bias
 }
 
+# Lokation grid tiles: square 1:1 crops for the 2x2 "Find os" gallery.
+LOKATION_SIZE = (1000, 1000)
+LOKATION_CENTERING = {
+    "lokation-facade.jpg":   (0.55, 0.5),  # bias right toward the doorway in the wide street view
+    "lokation-sign.jpg":     (0.5, 0.5),
+    "lokation-entrance.jpg": (0.5, 0.6),   # bias down to keep door visible at bottom
+    "lokation-door.jpg":     (0.5, 0.5),
+}
+
 for slot, src_name in FINALISTS.items():
     src_path = SRC / src_name
     dst_path = DST / slot
@@ -65,6 +79,8 @@ for slot, src_name in FINALISTS.items():
         img = ImageOps.fit(img, SERVICE_SIZE, Image.LANCZOS, centering=SERVICE_CENTERING[slot])
     elif slot in PORTRAIT_CENTERING:
         img = ImageOps.fit(img, PORTRAIT_SIZE, Image.LANCZOS, centering=PORTRAIT_CENTERING[slot])
+    elif slot in LOKATION_CENTERING:
+        img = ImageOps.fit(img, LOKATION_SIZE, Image.LANCZOS, centering=LOKATION_CENTERING[slot])
     elif max(img.size) > MAX_DIM:
         img.thumbnail((MAX_DIM, MAX_DIM), Image.LANCZOS)
     img.save(dst_path, "JPEG", quality=QUALITY, optimize=True)

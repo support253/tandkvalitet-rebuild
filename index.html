@@ -581,8 +581,13 @@
       display: grid; grid-template-columns: 1fr 1fr;
       min-height: 520px;
     }
-    .loc-photo { position: relative; height: 100%; overflow: hidden; }
-    .loc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .loc-photo {
+      position: relative; height: 100%; overflow: hidden;
+      display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr;
+      gap: 6px; background: var(--line);
+    }
+    .loc-photo figure { margin: 0; position: relative; overflow: hidden; }
+    .loc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .loc-details {
       padding: clamp(2rem, 4vw, 3rem);
       display: flex; flex-direction: column; justify-content: center;
@@ -687,7 +692,7 @@
       .team-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .loc-card { min-height: 0; }
-      .loc-photo { aspect-ratio: 16/9; height: auto; }
+      .loc-photo { aspect-ratio: 1/1; height: auto; }
     }
     @media (max-width: 520px) {
       .treat-grid { grid-template-columns: 1fr; }
@@ -1079,10 +1084,30 @@
 
     <div class="loc-card">
       <div class="loc-photo">
-        <img src="assets/lokation-exterior.jpg"
-             srcset="assets/lokation-exterior-800w.jpg 800w, assets/lokation-exterior-1600w.jpg 1600w, assets/lokation-exterior.jpg 2000w"
-             sizes="(max-width: 900px) 100vw, 50vw"
-             alt="Tandkvalitet, Adelgade 5, Nyborg — facade">
+        <figure>
+          <img src="assets/lokation-facade.jpg"
+               srcset="assets/lokation-facade-800w.jpg 800w, assets/lokation-facade.jpg 1000w"
+               sizes="(max-width: 900px) 50vw, 25vw"
+               alt="Tandkvalitet-bygningen på Adelgade 5, Nyborg — fra gaden">
+        </figure>
+        <figure>
+          <img src="assets/lokation-sign.jpg"
+               srcset="assets/lokation-sign-800w.jpg 800w, assets/lokation-sign.jpg 1000w"
+               sizes="(max-width: 900px) 50vw, 25vw"
+               alt="Tandlægerne Adelgade — skilt på bygningen">
+        </figure>
+        <figure>
+          <img src="assets/lokation-entrance.jpg"
+               srcset="assets/lokation-entrance-800w.jpg 800w, assets/lokation-entrance.jpg 1000w"
+               sizes="(max-width: 900px) 50vw, 25vw"
+               alt="Indgang med murstensbue og trappe op til klinikken">
+        </figure>
+        <figure>
+          <img src="assets/lokation-door.jpg"
+               srcset="assets/lokation-door-800w.jpg 800w, assets/lokation-door.jpg 1000w"
+               sizes="(max-width: 900px) 50vw, 25vw"
+               alt="Klinikkens dør med tand-logo">
+        </figure>
       </div>
       <div class="loc-details">
         <h3>Tandkvalitet Nyborg</h3>

@@ -18,6 +18,10 @@ IMG_PHOTOS = [
     "service-kroner.jpg",
     "service-akut.jpg",
     "lokation-exterior.jpg",
+    "lokation-facade.jpg",
+    "lokation-sign.jpg",
+    "lokation-entrance.jpg",
+    "lokation-door.jpg",
 ]
 
 WIDTHS = [800, 1600]
