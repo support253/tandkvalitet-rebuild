@@ -618,6 +618,50 @@
       font-weight: 500;
     }
 
+    /* --- FAQ --- */
+    .faq-wrap { padding: clamp(3rem, 6vw, 5rem) 0; }
+    .faq-head { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
+    .faq-head h2 { color: var(--navy); margin-bottom: 0.75rem; }
+    .faq-head p { color: var(--ink-60); font-size: 1.05rem; }
+    .faq-list { max-width: 780px; margin: 0 auto; }
+    .faq-item { border-top: 1px solid var(--line); }
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.5rem 2.5rem 1.5rem 0;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+      color: var(--navy);
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--teal-dark); }
+    .faq-item summary::after {
+      content: '+';
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.75rem; color: var(--teal);
+      font-family: 'Inter', sans-serif; font-weight: 300;
+      line-height: 1;
+      transition: transform 0.25s ease;
+    }
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-item p {
+      padding: 0 0 1.5rem;
+      color: var(--ink-60);
+      line-height: 1.65;
+      font-size: 15px;
+      max-width: 60ch;
+    }
+    .faq-item p a {
+      color: var(--navy);
+      border-bottom: 1px solid currentColor;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .faq-item p a:hover { color: var(--teal); border-color: var(--teal); }
+
     /* --- Lokationer --- */
     #kontakt { background: var(--cream); padding-bottom: clamp(5rem, 8vw, 8rem); }
     .loc-head { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
@@ -837,6 +881,7 @@
     </a>
 
     <div class="nav-links" id="navLinks">
+      <a href="#akut" class="nav-akut">Akut</a>
       <a href="#behandlinger">Behandlinger</a>
       <a href="#implantater">Implantater</a>
       <a href="#tandlaeger">Tandlæger</a>
@@ -971,7 +1016,7 @@
     </div>
 
     <div class="treat-grid">
-      <a class="treat-card" href="tel:+4565313300">
+      <a class="treat-card" href="tel:+4565313300" id="akut">
         <span class="treat-num">01</span>
         <h3>Akut &amp; tandskader</h3>
         <p>Revnet, knækket eller slået tand ud? Ring 65 31 33 00 med det samme.</p>
@@ -1187,7 +1232,40 @@
       <blockquote>
         "Utrolig dygtige og behagelige … også selvom der skal laves huller og man har en smule tandlægeskræk."
       </blockquote>
-      <cite>Camilla Nielsen — Google-anmeldelse</cite>
+      <cite>Camilla Nielsen — Google-anmeldelse · 2025</cite>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap" id="faq">
+  <div class="container">
+    <div class="faq-head">
+      <span class="eyebrow">Ofte stillede spørgsmål</span>
+      <h2>Hvad vil du gerne vide?</h2>
+      <p>De spørgsmål vi oftest får, før patienter bestiller første tid.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Tager I imod nye patienter?</summary>
+        <p>Ja, vi tager løbende imod nye patienter — både hvis du flytter fra kommunal tandpleje eller skifter fra en anden tandlæge. Du behøver ikke overflytte din journal før første besøg; vi ordner det bagefter.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Kan jeg få bedøvelse eller narkose?</summary>
+        <p>Ja. Vi bruger lokalbedøvelse rutinemæssigt ved behandlinger hvor det er relevant. Ved større eller angstfremkaldende indgreb er der mulighed for narkose — <a href="tel:+4565313300">ring 65 31 33 00</a> og spørg, så planlægger vi det sammen.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Hvad koster et rutineeftersyn?</summary>
+        <p>Vores priser følger <a href="https://www.tandlaegeforeningen.dk/" target="_blank" rel="noopener">Tandlægeforeningens overenskomst</a> samt sundhed.dk. Et årligt eftersyn for voksne er delvist dækket af sygesikringen. <a href="tel:+4565313300">Ring 65 31 33 00</a> hvis du vil have en konkret pris inden du kommer.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Har I ventetid?</summary>
+        <p>Ved akut behov kan vi ofte finde en tid samme dag i åbningstiden. Til rutineeftersyn <a href="tel:+4565313300">ringer du</a> og aftaler en tid, der passer dig.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Hvordan parkerer jeg?</summary>
+        <p>Der er tidsbegrænset gadeparkering omkring klinikken på Adelgade 5. Offentlige p-pladser ved Havnen og Torvet ligger få minutters gang fra klinikken.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -1358,6 +1436,7 @@
       '.skraek-photo', '.skraek-content',
       '.team-head', '.dentist-card',
       '.quote-block',
+      '.faq-head', '.faq-item',
       '.loc-head', '.loc-card', '.map-wrap',
       '.cta-banner-inner',
       '.footer-top > div'
