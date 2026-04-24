@@ -8,7 +8,7 @@ from PIL import Image, ImageOps
 from pathlib import Path
 
 SRC = Path(r"C:\Users\joe77\OneDrive\Documents\RiverAI-Pipeline\Tandkvalitet pictures\filtered photos")
-DST = Path(r"C:\Users\joe77\OneDrive\Documents\RiverAI-Pipeline\apps\tandkvalitet-rebuild\src\assets")
+DST = Path(r"C:\Users\joe77\OneDrive\Documents\RiverAI-Pipeline\apps\tandkvalitet-rebuild\assets")
 
 # slot_name -> source filename
 FINALISTS = {
@@ -18,7 +18,7 @@ FINALISTS = {
     "allan-portrait.jpg":       "20260421_122611.jpg",
     "implantater-room.jpg":     "20260421_123449.jpg",
     "behandlinger-action.jpg":  "20260421_125938.jpg",
-    "service-generel.jpg":      "20260421_125812.jpg",
+    "service-generel.jpg":      "20260421_125936.jpg",
     "service-kirurgi.jpg":      "20260421_130219.jpg",
     "service-kroner.jpg":       "20260421_124225.jpg",
     "service-akut.jpg":         "20260421_131510.jpg",
@@ -34,7 +34,7 @@ QUALITY = 85
 # in the visible strip rather than cropping it out.
 SERVICE_SIZE = (1400, 700)  # 2:1 landscape
 SERVICE_CENTERING = {
-    "service-generel.jpg": (0.5, 0.5),
+    "service-generel.jpg": (0.5, 0.55),  # team-room shot — slight down-bias to keep equipment + cut ceiling
     "service-kirurgi.jpg": (0.5, 0.3),   # bias up — show hands/action, cut drape
     "service-kroner.jpg":  (0.5, 0.5),
     "service-akut.jpg":    (0.5, 0.5),
