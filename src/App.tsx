@@ -1,7 +1,7 @@
 import './index.css'
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, MotionConfig } from 'motion/react'
-import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown } from 'lucide-react'
+import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown, X } from 'lucide-react'
 import heroReception from './assets/hero-reception.webp'
 import heroDuo from './assets/hero-duo.webp'
 import behandlingerAction from './assets/behandlinger-action.webp'
@@ -65,6 +65,7 @@ const treatments = [
 export default function App() {
   const [showTreatments, setShowTreatments] = useState(false)
   const [navScrolled, setNavScrolled] = useState(false)
+  const [showImplantModal, setShowImplantModal] = useState(false)
   const { scrollYProgress } = useScroll()
   const heroImageY = useTransform(scrollYProgress, [0, 0.3], ['0%', '15%'])
 
@@ -73,6 +74,18 @@ export default function App() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close modal on Escape + lock body scroll while open
+  useEffect(() => {
+    if (!showImplantModal) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowImplantModal(false) }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [showImplantModal])
 
   return (
     <MotionConfig reducedMotion="user">
@@ -302,7 +315,7 @@ export default function App() {
                 {
                   title: 'Specielle implantatbehandlinger',
                   desc: 'All-on-4, knogerekonstruktion og A-PRF. Avanceret implantologi som vores nationale speciale.',
-                  href: '#specielle-implantatbehandlinger',
+                  href: '#implantater',
                   external: false,
                 },
                 {
@@ -458,38 +471,16 @@ export default function App() {
                 <p className="text-[12px] text-white/40">Faste tænder med All-on-4</p>
               </div>
             </div>
-          </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Specielle implantatbehandlinger — detailed prose for the All-on-4 specialty */}
-      <section id="specielle-implantatbehandlinger" className="py-20 md:py-28 scroll-mt-20 bg-white border-t border-line">
-        <div className="max-w-[820px] mx-auto px-6">
-          <FadeIn>
-            <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">Specialeområde</p>
-            <h2 className="text-[28px] md:text-[36px] font-bold tracking-[-0.02em] text-ink leading-tight mb-6">Specielle implantatbehandlinger</h2>
-            <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
-              Vi har specialiseret os i at lave avancerede implantatbehandlinger.
-            </p>
-            <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
-              Mangler du 1, flere eller alle tænder, har vi altid en løsning til dig. Vi var de første i Danmark, der udførte All-on-4 behandlingen, hvor man bygger en fuldkæbebro på 4 implantater samme dag, som tænderne trækkes ud, og patienten får fastsiddende tænder samme dag.
-            </p>
-            <p className="text-ink-muted text-[15px] leading-relaxed mb-8">
-              Genopbygning af tabt knoglevæv eller tandkød kan også være nødvendigt inden implantater isættes. Her bygger vi med patientens egen knogle og knoglesubstitutter og bruger de nyeste teknikker på området. Vi laver A-PRF behandlinger, hvor vi anvender et koncentrat af dit eget blod (hvide blodlegemer og blodplader) til at stimulere sårhelingen.
-            </p>
-            <div className="border-t border-line pt-6">
-              <p className="text-[12px] text-ink-faint uppercase tracking-wider font-medium mb-3">Læs mere om teknikkerne</p>
-              <div className="flex flex-col gap-2.5">
-                <a href="https://www.nobelbiocare.com/en-se/all-on-4-treatment-concept" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
-                  All-on-4 Treatment Concept (Nobel Biocare) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-                <a href="https://www.puremed.dk/?portfolio=a-prf-and-allografts" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
-                  A-PRF and Allografts (Puremed) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
-            </div>
-          </FadeIn>
+            <button
+              type="button"
+              onClick={() => setShowImplantModal(true)}
+              className="mt-8 self-start bg-white text-accent px-6 py-3 rounded-xl text-[14px] font-semibold hover:bg-white/90 transition-all inline-flex items-center gap-2 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              Læs mere om vores speciale <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+          </div>
         </div>
       </section>
 
@@ -783,6 +774,70 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Specielle implantatbehandlinger — modal overlay */}
+      <AnimatePresence>
+        {showImplantModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setShowImplantModal(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="implant-modal-title"
+            className="fixed inset-0 z-[100] bg-ink/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative bg-white rounded-3xl max-w-[720px] w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            >
+              <button
+                type="button"
+                onClick={() => setShowImplantModal(false)}
+                aria-label="Luk"
+                className="sticky top-4 float-right mr-4 z-10 w-9 h-9 rounded-full bg-surface hover:bg-line text-ink-muted hover:text-ink flex items-center justify-center transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+              <div className="p-8 sm:p-10 md:p-12">
+                <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">Specialeområde</p>
+                <h2 id="implant-modal-title" className="text-[24px] sm:text-[28px] md:text-[32px] font-bold tracking-[-0.02em] text-ink leading-tight mb-6">
+                  Specielle implantatbehandlinger
+                </h2>
+                <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
+                  Vi har specialiseret os i at lave avancerede implantatbehandlinger.
+                </p>
+                <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
+                  Mangler du 1, flere eller alle tænder, har vi altid en løsning til dig. Vi var de første i Danmark, der udførte All-on-4 behandlingen, hvor man bygger en fuldkæbebro på 4 implantater samme dag, som tænderne trækkes ud, og patienten får fastsiddende tænder samme dag.
+                </p>
+                <p className="text-ink-muted text-[15px] leading-relaxed mb-8">
+                  Genopbygning af tabt knoglevæv eller tandkød kan også være nødvendigt inden implantater isættes. Her bygger vi med patientens egen knogle og knoglesubstitutter og bruger de nyeste teknikker på området. Vi laver A-PRF behandlinger, hvor vi anvender et koncentrat af dit eget blod (hvide blodlegemer og blodplader) til at stimulere sårhelingen.
+                </p>
+                <div className="border-t border-line pt-6">
+                  <p className="text-[12px] text-ink-faint uppercase tracking-wider font-medium mb-3">Læs mere om teknikkerne</p>
+                  <div className="flex flex-col gap-2.5 mb-8">
+                    <a href="https://www.nobelbiocare.com/en-se/all-on-4-treatment-concept" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
+                      All-on-4 Treatment Concept (Nobel Biocare) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                    <a href="https://www.puremed.dk/?portfolio=a-prf-and-allografts" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
+                      A-PRF and Allografts (Puremed) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  </div>
+                  <a href="tel:65313300" className="bg-accent text-white px-6 py-3 rounded-xl text-[14px] font-semibold hover:bg-accent-dark transition-colors inline-flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> Ring 65 31 33 00 for en samtale
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
     </MotionConfig>
   )
