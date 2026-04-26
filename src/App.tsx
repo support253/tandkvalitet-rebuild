@@ -289,40 +289,117 @@ export default function App() {
         </div>
       </section>
 
-      {/* Alle behandlinger — collapsed full list (SEO content kept in DOM) */}
+      {/* Alle behandlinger — full list with Tandlægeforeningen reference links */}
       <section id="alle-behandlinger" className="pb-20 md:pb-28 scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <FadeIn>
-            <details className="group">
-              <summary className="flex items-center justify-between gap-4 py-4 px-5 cursor-pointer list-none rounded-xl border border-line bg-white hover:border-accent/30 hover:bg-surface transition-colors text-[15px] font-semibold text-ink">
-                <span>Se alle 12 behandlinger</span>
-                <ChevronDown className="w-4 h-4 text-ink-faint shrink-0 transition-transform duration-200 group-open:rotate-180" />
-              </summary>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
-                {[
-                  ['Caries', 'Behandling af huller i tænderne med fyldninger og forebyggelse.'],
-                  ['Tandkødsbetændelse & parodontitis', 'Behandling og forebyggelse af sygdomme i tandkødet.'],
-                  ['Rodbehandling', 'Fjernelse af betændt væv i tandens rodkanal.'],
-                  ['Revner i tænderne', 'Diagnosticering og behandling af dentinfrakturer.'],
-                  ['Visdomstænder', 'Vurdering og evt. fjernelse af visdomstænder.'],
-                  ['Efter fjernelse af en tand', 'Vejledning og opfølgning efter tandudtrækning.'],
-                  ['Erosioner', 'Behandling og forebyggelse af syreskader på emaljen.'],
-                  ['Blegning af tænder', 'Professionel tandblegning for et hvidere smil.'],
-                  ['Kroner og broer', 'Faste erstatninger der genskaber funktion og æstetik.'],
-                  ['Hel- og delproteser', 'Aftagelige erstatninger ved tab af flere tænder.'],
-                  ['Kosmetisk tandbehandling', 'Æstetiske behandlinger for dit bedste smil.'],
-                  ['Implantater', 'Kunstige tandrødder som fundament for kroner og broer.'],
-                ].map(([title, desc], i) => (
-                  <div key={i} className="flex gap-3 p-4 rounded-xl border border-line bg-white hover:border-accent/20 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
-                    <div>
-                      <h4 className="text-[14px] font-medium text-ink">{title}</h4>
-                      <p className="text-[12px] text-ink-muted mt-0.5">{desc}</p>
-                    </div>
+            <h3 className="text-[18px] font-semibold text-ink mb-2">Alle behandlinger</h3>
+            <p className="text-[13px] text-ink-muted mb-6">Beskrivelser og illustrationer af de enkelte behandlinger findes hos <a href="https://www.tandlaegeforeningen.dk" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">Tandlægeforeningen</a>.</p>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                {
+                  title: 'Specielle implantatbehandlinger',
+                  desc: 'All-on-4, knogerekonstruktion og A-PRF. Avanceret implantologi som vores nationale speciale.',
+                  href: '#implantater',
+                  external: false,
+                },
+                {
+                  title: 'Implantatbehandlinger',
+                  desc: 'Kunstige tandrødder som fundament for kroner og broer.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/implantat-en-kunstig-tandrod/',
+                  external: true,
+                },
+                {
+                  title: 'Caries',
+                  desc: 'Behandling af huller i tænderne med fyldninger og forebyggelse.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/',
+                  external: true,
+                },
+                {
+                  title: 'Tandkødsbetændelse og parodontitis',
+                  desc: 'Behandling og forebyggelse af sygdomme i tandkødet.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/tandkoedsbetaendelse/',
+                  external: true,
+                },
+                {
+                  title: 'Rodbehandling',
+                  desc: 'Fjernelse af betændt væv i tandens rodkanal.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/',
+                  external: true,
+                },
+                {
+                  title: 'Revner i tænderne',
+                  desc: 'Diagnosticering og behandling af dentinfrakturer.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/revner-i-taenderne-dentininfraktioner/',
+                  external: true,
+                },
+                {
+                  title: 'Visdomstænder',
+                  desc: 'Vurdering og evt. fjernelse af visdomstænder.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/visdomstaender/',
+                  external: true,
+                },
+                {
+                  title: 'Efter fjernelse af en tand',
+                  desc: 'Vejledning og opfølgning efter tandudtrækning.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/efter-fjernelse-af-en-tand/',
+                  external: true,
+                },
+                {
+                  title: 'Erosioner – syreskader',
+                  desc: 'Behandling og forebyggelse af syreskader på emaljen.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/erosioner-syreskader-paa-taenderne/',
+                  external: true,
+                },
+                {
+                  title: 'Kosmetisk tandbehandling',
+                  desc: 'Æstetiske behandlinger for dit bedste smil.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/livsstil/kosmetisk-tandbehandling/',
+                  external: true,
+                },
+                {
+                  title: 'Kroner og broer',
+                  desc: 'Faste erstatninger der genskaber funktion og æstetik.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/',
+                  external: true,
+                },
+                {
+                  title: 'Helprotese',
+                  desc: 'Aftagelig erstatning ved tab af alle tænder i kæben.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
+                  external: true,
+                },
+                {
+                  title: 'Delprotese',
+                  desc: 'Aftagelig erstatning ved tab af enkelte eller flere tænder.',
+                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
+                  external: true,
+                },
+              ].map((b, i) => (
+                <a
+                  key={i}
+                  href={b.href}
+                  target={b.external ? '_blank' : undefined}
+                  rel={b.external ? 'noopener noreferrer' : undefined}
+                  className="group flex gap-3 p-4 rounded-xl border border-line bg-white hover:border-accent/40 hover:shadow-sm transition-all"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
+                  <div className="flex-1">
+                    <h4 className="text-[14px] font-medium text-ink group-hover:text-accent transition-colors flex items-center gap-1.5">
+                      {b.title}
+                      {b.external ? (
+                        <ArrowUpRight className="w-3 h-3 text-ink-faint group-hover:text-accent transition-colors" />
+                      ) : (
+                        <ArrowRight className="w-3 h-3 text-ink-faint group-hover:text-accent transition-colors" />
+                      )}
+                    </h4>
+                    <p className="text-[12px] text-ink-muted mt-0.5">{b.desc}</p>
                   </div>
-                ))}
-              </div>
-            </details>
+                </a>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </section>
