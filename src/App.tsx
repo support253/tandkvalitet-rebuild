@@ -302,115 +302,134 @@ export default function App() {
         </div>
       </section>
 
-      {/* Alle behandlinger — full list with Tandlægeforeningen reference links */}
+      {/* Alle behandlinger — expandable cards with on-page summaries */}
       <section id="alle-behandlinger" className="pb-20 md:pb-28 scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <FadeIn>
             <h3 className="text-[18px] font-semibold text-ink mb-2">Alle behandlinger</h3>
-            <p className="text-[13px] text-ink-muted mb-6">Beskrivelser og illustrationer af de enkelte behandlinger findes hos <a href="https://www.tandlaegeforeningen.dk" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">Tandlægeforeningen</a>.</p>
+            <p className="text-[13px] text-ink-muted mb-6">Klik på en behandling for en kort beskrivelse. Faglige illustrationer og uddybende tekst findes hos <a href="https://www.tandlaegeforeningen.dk" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">Tandlægeforeningen</a>.</p>
           </FadeIn>
           <FadeIn delay={0.1}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-start">
               {[
                 {
                   title: 'Specielle implantatbehandlinger',
-                  desc: 'All-on-4, knogerekonstruktion og A-PRF. Avanceret implantologi som vores nationale speciale.',
+                  desc: 'All-on-4, knogerekonstruktion og A-PRF — vores nationale speciale.',
+                  longText: 'Vi var de første i Danmark der udførte All-on-4 behandlingen — fuldkæbebro på 4 implantater og fastsiddende tænder samme dag. Mangler du 1, flere eller alle tænder, har vi en løsning. Vi laver også knogerekonstruktion med din egen knogle og A-PRF, hvor vi bruger et koncentrat af dit eget blod til at stimulere sårhelingen.',
                   href: '#implantater',
                   external: false,
                 },
                 {
                   title: 'Implantatbehandlinger',
                   desc: 'Kunstige tandrødder som fundament for kroner og broer.',
+                  longText: 'Et implantat er en kunstig tandrod af titanium, der opereres ind i kæbeknoglen og vokser fast over nogle måneder. Det bruges når en eller flere tænder mangler — uden at vi behøver at slibe på nabotanderne. Efter helingstiden får du en porcelænskrone eller bro fastskruet på implantatet, og grundig mundhygiejne er afgørende for at det holder i mange år.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/g-k/implantat-en-kunstig-tandrod/',
                   external: true,
                 },
                 {
                   title: 'Caries',
-                  desc: 'Behandling af huller i tænderne med fyldninger og forebyggelse.',
+                  desc: 'Huller i tænderne — fyldninger og forebyggelse.',
+                  longText: 'Caries — kaldt "huller i tænderne" — opstår når bakterier omdanner sukker til syre, der opløser tandens overflade. Vi behandler ved at fjerne det syge tandvæv og lægge en fyldning, der genskaber tandens form. Forebyggelse handler om daglig tandbørstning med fluortandpasta, mindre sukker, og regelmæssige eftersyn.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/',
                   external: true,
                 },
                 {
                   title: 'Tandkødsbetændelse og parodontitis',
                   desc: 'Behandling og forebyggelse af sygdomme i tandkødet.',
+                  longText: 'Tandkødsbetændelse opstår når bakterier samler sig på tænderne; tandkødet bliver hævet, rødt og bløder ved tandbørstning. Parodontitis er den alvorlige form, hvor knoglen omkring tanden begynder at nedbrydes. Behandlingen er fjernelse af plak og tandsten samt grundig daglig pleje — jo tidligere du kommer, jo nemmere er det at vende processen.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/s-aa/tandkoedsbetaendelse/',
                   external: true,
                 },
                 {
                   title: 'Rodbehandling',
                   desc: 'Fjernelse af betændt væv i tandens rodkanal.',
+                  longText: 'Rodbehandling bliver nødvendig når bakterier når ind til tandens nerve, ofte gennem et dybt hul eller en revne. Vi åbner tanden, fjerner den inficerede nerve og renser rodkanalen — alt sammen under lokalbedøvelse, så det er stort set smertefrit. Bagefter får tanden en fyldning eller krone for at sikre den på lang sigt.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/',
                   external: true,
                 },
                 {
                   title: 'Revner i tænderne',
                   desc: 'Diagnosticering og behandling af dentinfrakturer.',
+                  longText: 'Dentininfraktioner er små revner i tandbenet under emaljen, som ikke ses udefra, men giver skarpe smerter ved tygning eller koldt. De opstår typisk i tænder med store fyldninger eller efter års slid. Små revner kan limes med en fyldning, mens større kræver en krone for at stabilisere tanden.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/revner-i-taenderne-dentininfraktioner/',
                   external: true,
                 },
                 {
                   title: 'Visdomstænder',
                   desc: 'Vurdering og evt. fjernelse af visdomstænder.',
+                  longText: 'Visdomstænder kommer typisk frem i 20-årene, men kæben er ofte for lille til at give plads. Når de ligger skævt eller delvist skjult, kan de give betændelse, huller i nabotanden eller dybe tandkødslommer. Vi vurderer om en fjernelse er nødvendig, og indgrebet foregår altid under lokalbedøvelse.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/s-aa/visdomstaender/',
                   external: true,
                 },
                 {
                   title: 'Efter fjernelse af en tand',
                   desc: 'Vejledning og opfølgning efter tandudtrækning.',
+                  longText: 'De første timer efter en tandudtrækning er munden bedøvet — vent med at spise indtil bedøvelsen er væk. Ved blødning lægger du en ren gaze på såret og bider sammen i 30 minutter. Hold ro det første døgn, lig med hovedet højt, undgå at skylle munden, og kontakt os hvis blødningen ikke stopper eller hævelsen vokser efter to dage.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/efter-fjernelse-af-en-tand/',
                   external: true,
                 },
                 {
                   title: 'Erosioner – syreskader',
                   desc: 'Behandling og forebyggelse af syreskader på emaljen.',
+                  longText: 'Erosioner er slid på tænderne forårsaget af syre — fra sodavand, juice, sure opstød eller opkast. De første tegn er små fordybninger på kindtænderne, som regel uden smerte; uden behandling bliver tænderne kortere og mere følsomme. Vi behandler etablerede skader med fyldninger eller kroner — emaljen genoprettes ikke af sig selv.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/erosioner-syreskader-paa-taenderne/',
                   external: true,
                 },
                 {
                   title: 'Kosmetisk tandbehandling',
                   desc: 'Æstetiske behandlinger for dit bedste smil.',
+                  longText: 'Kosmetisk tandbehandling omfatter blandt andet blegning, facader og kosmetiske fyldninger, der kan gøre tænder lysere eller ændre deres form. Resultatet afhænger af din tandtype, og det holder ikke evigt. Vi gennemgår altid mulighederne, holdbarhed og bivirkninger med dig før vi går i gang.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/livsstil/kosmetisk-tandbehandling/',
                   external: true,
                 },
                 {
                   title: 'Kroner og broer',
                   desc: 'Faste erstatninger der genskaber funktion og æstetik.',
+                  longText: 'En krone er en kunstig kappe, der beskytter en ødelagt tand. En bro erstatter en eller flere manglende tænder ved at være fastcementeret på nabotænderne. Begge kan laves i porcelæn, guld eller en kombination, og indgrebet involverer slibning, aftryk og montering af den færdige konstruktion. Du passer dem som dine egne tænder med daglig børstning og tandtråd.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/',
                   external: true,
                 },
                 {
                   title: 'Helprotese',
                   desc: 'Aftagelig erstatning ved tab af alle tænder i kæben.',
+                  longText: 'En helprotese erstatter alle tænder i kæben når ingen naturlige tænder kan bevares — typisk efter omfattende tandtab fra huller, parodontitis eller slid. Vi tilpasser den løbende, især i de første måneder hvor tandkødet ændrer sig. Børst protesen dagligt med koldt vand og mild sæbe (aldrig varmt), og kom til regelmæssige kontroller — protesen skal justeres med tiden, da tandkødet svinder.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
                   external: true,
                 },
                 {
                   title: 'Delprotese',
                   desc: 'Aftagelig erstatning ved tab af enkelte eller flere tænder.',
+                  longText: 'En delprotese erstatter få eller flere manglende tænder og holdes på plads af små bøjler på dine resterende tænder. Vi sliber lidt på tænderne for at få plads til bøjlerne, og protesen tilpasses løbende. Du børster den dagligt med koldt vand og mild sæbe, og kommer til regelmæssige kontroller, så vi kan justere efterhånden som tandkødet ændrer sig.',
                   href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
                   external: true,
                 },
               ].map((b, i) => (
-                <a
-                  key={i}
-                  href={b.href}
-                  target={b.external ? '_blank' : undefined}
-                  rel={b.external ? 'noopener noreferrer' : undefined}
-                  className="group flex gap-3 p-4 rounded-xl border border-line bg-white hover:border-accent/40 hover:shadow-sm transition-all"
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
-                  <div className="flex-1">
-                    <h4 className="text-[14px] font-medium text-ink group-hover:text-accent transition-colors flex items-center gap-1.5">
-                      {b.title}
-                      {b.external ? (
-                        <ArrowUpRight className="w-3 h-3 text-ink-faint group-hover:text-accent transition-colors" />
-                      ) : (
-                        <ArrowRight className="w-3 h-3 text-ink-faint group-hover:text-accent transition-colors" />
-                      )}
-                    </h4>
-                    <p className="text-[12px] text-ink-muted mt-0.5">{b.desc}</p>
+                <details key={i} className="group rounded-xl border border-line bg-white hover:border-accent/40 transition-colors open:border-accent/40 open:shadow-sm">
+                  <summary className="flex gap-3 p-4 cursor-pointer list-none">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
+                    <div className="flex-1">
+                      <h4 className="text-[14px] font-medium text-ink group-hover:text-accent group-open:text-accent transition-colors flex items-center justify-between gap-2">
+                        <span>{b.title}</span>
+                        <ChevronDown className="w-3.5 h-3.5 text-ink-faint shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                      </h4>
+                      <p className="text-[12px] text-ink-muted mt-0.5">{b.desc}</p>
+                    </div>
+                  </summary>
+                  <div className="px-4 pb-4 pl-[1.6rem]">
+                    <p className="text-[13px] text-ink-muted leading-relaxed border-t border-line pt-3 mb-3">
+                      {b.longText}
+                    </p>
+                    <a
+                      href={b.href}
+                      target={b.external ? '_blank' : undefined}
+                      rel={b.external ? 'noopener noreferrer' : undefined}
+                      className="inline-flex items-center gap-1 text-[12px] font-medium text-accent hover:text-accent-dark transition-colors"
+                    >
+                      {b.external ? 'Læs alt på Tandlægeforeningen' : 'Se vores fulde implantat-speciale'}
+                      {b.external ? <ArrowUpRight className="w-3 h-3" /> : <ArrowRight className="w-3 h-3" />}
+                    </a>
                   </div>
-                </a>
+                </details>
               ))}
             </div>
           </FadeIn>
