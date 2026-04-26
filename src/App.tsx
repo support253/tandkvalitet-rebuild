@@ -302,79 +302,79 @@ export default function App() {
                 {
                   title: 'Specielle implantatbehandlinger',
                   desc: 'All-on-4, knogerekonstruktion og A-PRF. Avanceret implantologi som vores nationale speciale.',
-                  href: '#implantater',
+                  href: '#specielle-implantatbehandlinger',
                   external: false,
                 },
                 {
                   title: 'Implantatbehandlinger',
                   desc: 'Kunstige tandrødder som fundament for kroner og broer.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/implantat-en-kunstig-tandrod/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/g-k/implantat-en-kunstig-tandrod/',
                   external: true,
                 },
                 {
                   title: 'Caries',
                   desc: 'Behandling af huller i tænderne med fyldninger og forebyggelse.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/',
                   external: true,
                 },
                 {
                   title: 'Tandkødsbetændelse og parodontitis',
                   desc: 'Behandling og forebyggelse af sygdomme i tandkødet.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/tandkoedsbetaendelse/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/s-aa/tandkoedsbetaendelse/',
                   external: true,
                 },
                 {
                   title: 'Rodbehandling',
                   desc: 'Fjernelse af betændt væv i tandens rodkanal.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/',
                   external: true,
                 },
                 {
                   title: 'Revner i tænderne',
                   desc: 'Diagnosticering og behandling af dentinfrakturer.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/revner-i-taenderne-dentininfraktioner/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/revner-i-taenderne-dentininfraktioner/',
                   external: true,
                 },
                 {
                   title: 'Visdomstænder',
                   desc: 'Vurdering og evt. fjernelse af visdomstænder.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/visdomstaender/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/s-aa/visdomstaender/',
                   external: true,
                 },
                 {
                   title: 'Efter fjernelse af en tand',
                   desc: 'Vejledning og opfølgning efter tandudtrækning.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/efter-fjernelse-af-en-tand/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/efter-fjernelse-af-en-tand/',
                   external: true,
                 },
                 {
                   title: 'Erosioner – syreskader',
                   desc: 'Behandling og forebyggelse af syreskader på emaljen.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/erosioner-syreskader-paa-taenderne/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/a-f/erosioner-syreskader-paa-taenderne/',
                   external: true,
                 },
                 {
                   title: 'Kosmetisk tandbehandling',
                   desc: 'Æstetiske behandlinger for dit bedste smil.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/livsstil/kosmetisk-tandbehandling/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/livsstil/kosmetisk-tandbehandling/',
                   external: true,
                 },
                 {
                   title: 'Kroner og broer',
                   desc: 'Faste erstatninger der genskaber funktion og æstetik.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/',
                   external: true,
                 },
                 {
                   title: 'Helprotese',
                   desc: 'Aftagelig erstatning ved tab af alle tænder i kæben.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
                   external: true,
                 },
                 {
                   title: 'Delprotese',
                   desc: 'Aftagelig erstatning ved tab af enkelte eller flere tænder.',
-                  href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
+                  href: 'https://www.tandlaegeforeningen.dk/til-tandlaeger/til-dine-patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/',
                   external: true,
                 },
               ].map((b, i) => (
@@ -460,6 +460,36 @@ export default function App() {
             </div>
           </div>
           </div>
+        </div>
+      </section>
+
+      {/* Specielle implantatbehandlinger — detailed prose for the All-on-4 specialty */}
+      <section id="specielle-implantatbehandlinger" className="py-20 md:py-28 scroll-mt-20 bg-white border-t border-line">
+        <div className="max-w-[820px] mx-auto px-6">
+          <FadeIn>
+            <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">Specialeområde</p>
+            <h2 className="text-[28px] md:text-[36px] font-bold tracking-[-0.02em] text-ink leading-tight mb-6">Specielle implantatbehandlinger</h2>
+            <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
+              Vi har specialiseret os i at lave avancerede implantatbehandlinger.
+            </p>
+            <p className="text-ink-muted text-[15px] leading-relaxed mb-5">
+              Mangler du 1, flere eller alle tænder, har vi altid en løsning til dig. Vi var de første i Danmark, der udførte All-on-4 behandlingen, hvor man bygger en fuldkæbebro på 4 implantater samme dag, som tænderne trækkes ud, og patienten får fastsiddende tænder samme dag.
+            </p>
+            <p className="text-ink-muted text-[15px] leading-relaxed mb-8">
+              Genopbygning af tabt knoglevæv eller tandkød kan også være nødvendigt inden implantater isættes. Her bygger vi med patientens egen knogle og knoglesubstitutter og bruger de nyeste teknikker på området. Vi laver A-PRF behandlinger, hvor vi anvender et koncentrat af dit eget blod (hvide blodlegemer og blodplader) til at stimulere sårhelingen.
+            </p>
+            <div className="border-t border-line pt-6">
+              <p className="text-[12px] text-ink-faint uppercase tracking-wider font-medium mb-3">Læs mere om teknikkerne</p>
+              <div className="flex flex-col gap-2.5">
+                <a href="https://www.nobelbiocare.com/en-se/all-on-4-treatment-concept" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
+                  All-on-4 Treatment Concept (Nobel Biocare) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+                <a href="https://www.puremed.dk/?portfolio=a-prf-and-allografts" target="_blank" rel="noopener noreferrer" className="text-[14px] text-accent hover:text-accent-dark inline-flex items-center gap-1.5 group">
+                  A-PRF and Allografts (Puremed) <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
