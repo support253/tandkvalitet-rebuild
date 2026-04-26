@@ -2,13 +2,13 @@ import './index.css'
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence, MotionConfig } from 'motion/react'
 import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown } from 'lucide-react'
-import heroReception from './assets/hero-reception.jpg'
-import heroDuo from './assets/hero-duo.png'
-import behandlingerAction from './assets/behandlinger-action.jpg'
-import serviceGenerel from './assets/service-generel.jpg'
-import serviceKirurgi from './assets/service-kirurgi.jpg'
+import heroReception from './assets/hero-reception.webp'
+import heroDuo from './assets/hero-duo.webp'
+import behandlingerAction from './assets/behandlinger-action.webp'
+import serviceGenerel from './assets/service-generel.webp'
+import serviceKirurgi from './assets/service-kirurgi.webp'
 import serviceKroner from './assets/service-kroner.jpg'
-import serviceAkut from './assets/service-akut.jpg'
+import serviceAkut from './assets/service-akut.webp'
 import implantaterRoom from './assets/implantater-room.jpg'
 import tandlaegeskraekWaiting from './assets/tandlaegeskraek-waiting.jpg'
 import allanPortrait from './assets/allan-portrait.jpg'
@@ -150,6 +150,8 @@ export default function App() {
           <motion.img
             src={heroReception}
             alt="Reception hos Tandkvalitet i Nyborg"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover scale-110"
             style={{ y: heroImageY }}
           />
@@ -235,6 +237,8 @@ export default function App() {
                 <img
                   src={behandlingerAction}
                   alt="Tandlæge Hana i gang med behandling"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[300px] object-cover"
                 />
               </div>
@@ -271,7 +275,7 @@ export default function App() {
                   s.highlight ? 'border-accent/30 bg-accent-light' : 'border-line bg-white'
                 }`}>
                   <div className="h-32 overflow-hidden">
-                    <img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={s.img} alt={s.title} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-5">
                     <h3 className="text-[15px] font-semibold text-ink mb-1.5">{s.title}</h3>
@@ -332,6 +336,8 @@ export default function App() {
             <img
               src={implantaterRoom}
               alt="Præcisionsarbejde med implantatkomponent"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>
@@ -389,6 +395,8 @@ export default function App() {
               <img
                 src={tandlaegeskraekWaiting}
                 alt="Rolig venteområde med bløde stole"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-[400px] object-cover"
               />
             </div>
@@ -532,7 +540,7 @@ export default function App() {
             ].map((p, i) => (
               <div key={i} className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="aspect-[4/5] bg-surface overflow-hidden">
-                  <img src={p.img} alt={p.name} className="w-full h-full object-cover object-top" />
+                  <img src={p.img} alt={p.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
@@ -560,10 +568,10 @@ export default function App() {
           <FadeIn delay={0.2}>
           <div className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
             <div className="relative h-[280px] lg:h-auto overflow-hidden grid grid-cols-2 grid-rows-2 gap-1 bg-line">
-              <img src={lokationFacade} alt="Tandkvalitet, Adelgade 5 — facade" className="w-full h-full object-cover" />
-              <img src={lokationSign} alt="Tandlægerne Adelgade — skilt" className="w-full h-full object-cover" />
-              <img src={lokationEntrance} alt="Indgang — trappen op til klinikken" className="w-full h-full object-cover" />
-              <img src={lokationDoor} alt="Klinikkens dør med tandsymbol" className="w-full h-full object-cover" />
+              <img src={lokationFacade} alt="Tandkvalitet, Adelgade 5 — facade" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={lokationSign} alt="Tandlægerne Adelgade — skilt" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={lokationEntrance} alt="Indgang — trappen op til klinikken" loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={lokationDoor} alt="Klinikkens dør med tandsymbol" loading="lazy" decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
               <h3 className="text-[22px] font-semibold text-ink mb-6">Tandkvalitet Nyborg</h3>

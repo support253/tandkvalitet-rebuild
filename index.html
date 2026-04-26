@@ -4,7 +4,17 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tandkvalitet Nyborg — Tandlæger Hana El-khawaga & Allan Friis Pedersen</title>
+
+    <title>Tandlæge i Nyborg — Tandkvalitet | Implantater, kirurgi & tryg behandling</title>
+    <meta name="description" content="Tandlæge i Nyborg siden august 2024. Professionel behandling, fokus på tandlægeskræk og implantologi som speciale. Ring 65 31 33 00 for tid." />
+    <link rel="canonical" href="https://tandkvalitet.dk/" />
+
+    <!--
+      noindex: this Vercel preview build runs alongside the legacy WordPress site
+      that still lives at tandkvalitet.dk. Remove this meta tag once Thomas swaps
+      the production DNS to Vercel and the rebuild becomes the live site.
+    -->
+    <meta name="robots" content="noindex, nofollow" />
 
     <script type="application/ld+json">
       {
@@ -17,6 +27,8 @@
         "email": "info@tandkvalitet.dk",
         "description": "Tandklinik i Nyborg med to erfarne indehavere. Implantologi som speciale, fokus på tandlægeskræk.",
         "priceRange": "$$",
+        "image": "https://tandkvalitet.dk/lokation-facade.jpg",
+        "medicalSpecialty": ["OralSurgery", "CosmeticDentistry"],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Adelgade 5",
@@ -24,6 +36,11 @@
           "postalCode": "5800",
           "addressCountry": "DK",
           "addressRegion": "Region Syddanmark"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 55.3144,
+          "longitude": 10.7929
         },
         "areaServed": [
           {"@type": "City", "name": "Nyborg"},
@@ -41,6 +58,55 @@
         "employee": [
           {"@type": "Person", "name": "Hana El-khawaga", "jobTitle": "Tandlæge, Indehaver"},
           {"@type": "Person", "name": "Allan Friis Pedersen", "jobTitle": "Tandlæge, Indehaver"}
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Tager I imod nye patienter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, vi tager løbende imod nye patienter — både hvis du flytter fra kommunal tandpleje eller skifter fra en anden tandlæge. Du behøver ikke overflytte din journal før første besøg; vi ordner det bagefter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Jeg har ikke været hos tandlægen i mange år — bliver der skældt ud?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nej. Aldrig. Vi har set det hele før, og første besøg er en samtale, ikke en eksamen. Vi kigger, vi forklarer, og vi lægger en plan i dit tempo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan jeg få bedøvelse eller narkose?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. Vi bruger lokalbedøvelse rutinemæssigt ved behandlinger hvor det er relevant. Ved større eller angstfremkaldende indgreb er der mulighed for narkose — ring 65 31 33 00 og spørg, så planlægger vi det sammen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvad koster et rutineeftersyn?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vores priser følger Tandlægeforeningens overenskomst samt sundhed.dk. Et årligt eftersyn for voksne er delvist dækket af sygesikringen. Ring 65 31 33 00 hvis du vil have en konkret pris inden du kommer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Har I ventetid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ved akut behov kan vi ofte finde en tid samme dag i åbningstiden. Til rutineeftersyn ringer du og aftaler en tid, der passer dig."
+            }
+          }
         ]
       }
     </script>
