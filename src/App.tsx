@@ -1,6 +1,6 @@
 import './index.css'
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
+import { motion, useScroll, useTransform, AnimatePresence, MotionConfig } from 'motion/react'
 import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown } from 'lucide-react'
 import heroReception from './assets/hero-reception.jpg'
 import heroDuo from './assets/hero-duo.png'
@@ -75,6 +75,7 @@ export default function App() {
   }, [])
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen font-sans overflow-x-hidden">
 
       {/* Nav */}
@@ -133,10 +134,12 @@ export default function App() {
             <a href="#find-os" className={`transition-colors ${navScrolled ? 'hover:text-ink' : 'hover:text-white'}`}>Kontakt</a>
             <a href="https://www.sundhed.dk" target="_blank" rel="noopener noreferrer" className={`transition-colors ${navScrolled ? 'hover:text-ink' : 'hover:text-white'}`}>Priser</a>
           </div>
-          <a href="tel:65313300" className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all ${
+          <a href="tel:65313300" className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-medium transition-all ${
             navScrolled ? 'bg-accent text-white hover:bg-accent-dark' : 'bg-white/15 text-white hover:bg-white/25 backdrop-blur-sm'
           }`}>
-            Book tid
+            <Phone className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Ring 65 31 33 00</span>
+            <span className="sm:hidden">Ring</span>
           </a>
         </div>
       </motion.nav>
@@ -159,15 +162,17 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           src={heroDuo}
+          loading="lazy"
+          decoding="async"
           alt="Hana El-khawaga og Allan Friis Pedersen — tandlæger og indehavere"
-          className="hidden lg:block absolute bottom-0 right-0 xl:right-8 z-10 h-[78%] w-auto pointer-events-none select-none object-contain object-bottom drop-shadow-2xl"
+          className="hidden lg:block absolute bottom-0 right-0 xl:right-8 z-10 h-[68%] xl:h-[74%] max-w-[44%] w-auto pointer-events-none select-none object-contain object-bottom drop-shadow-2xl"
         />
 
         <div className="max-w-[1200px] mx-auto px-6 pb-16 md:pb-24 relative z-20 w-full">
           <div className="max-w-[640px]">
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-[clamp(36px,5.5vw,72px)] text-white font-bold leading-[1.05] tracking-[-0.03em]">
-              Dine tænder.<br />Dit smil.
+              className="text-[clamp(30px,5vw,64px)] text-white font-bold leading-[1.08] tracking-[-0.03em]">
+              Tandlæge i Nyborg —<br />implantater, kirurgi og tryg behandling
             </motion.h1>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
               className="text-[18px] text-white/70 mt-5 leading-[1.65] font-light max-w-[520px]">
@@ -182,10 +187,16 @@ export default function App() {
                 Se behandlinger
               </a>
             </motion.div>
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.75 }}
-              className="text-[13px] text-white/70 mt-7 leading-relaxed">
-              <strong className="text-white font-semibold">Vi modtager nye patienter</strong> · Åbent man–fre fra 08:00 · Telefontid 08–12 hverdage
-            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.75 }}
+              className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[13px] text-white/70 mt-7 leading-relaxed">
+              <span className="inline-flex items-center gap-1.5 bg-accent/95 text-white text-[12px] font-semibold px-3 py-1 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                Vi modtager nye patienter
+              </span>
+              <span>Åbent man–fre fra 08:00</span>
+              <span aria-hidden="true" className="text-white/30">·</span>
+              <span>Telefontid 08–12 hverdage</span>
+            </motion.div>
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85 }}
               className="text-[12px] text-white/50 mt-2 leading-relaxed">
               Uden for telefontid: <a href="mailto:info@tandkvalitet.dk" className="text-white/70 hover:text-white underline decoration-white/20 hover:decoration-white/60 transition-colors">info@tandkvalitet.dk</a> · Akut aften/weekend: <a href="tel:+4599440809" className="text-white/70 hover:text-white underline decoration-white/20 hover:decoration-white/60 transition-colors">Tandlægevagten Fyn 99 44 08 09</a>
@@ -196,10 +207,10 @@ export default function App() {
 
       {/* Trust strip */}
       <div className="bg-accent text-white">
-        <div className="max-w-[1200px] mx-auto px-6 py-5 flex flex-wrap justify-between gap-6 text-[13px] font-medium">
+        <div className="max-w-[1200px] mx-auto px-6 py-5 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-3 text-[13px] font-medium">
           {['All-on-4 pionerer i Danmark', 'Henvisninger fra hele landet', 'Specialister i implantologi', 'Fokus på tandlægeskræk'].map((t, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-white/60" />
+            <div key={i} className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-white/60 shrink-0 mt-0.5" />
               <span>{t}</span>
             </div>
           ))}
@@ -252,7 +263,7 @@ export default function App() {
                 },
                 {
                   title: 'Akut tandhjælp',
-                  desc: 'Akutte tilfælde prioriteres. Ring 08-10 for hurtig hjælp. Udenfor åbningstid: Tandlægevagten.',
+                  desc: 'Ring 65 31 33 00 i åbningstiden — akutte tilfælde prioriteres samme dag. Aften/weekend: Tandlægevagten Fyn.',
                   img: serviceAkut,
                 },
               ].map((s, i) => (
@@ -274,36 +285,41 @@ export default function App() {
         </div>
       </section>
 
-      {/* Alle behandlinger — full list */}
+      {/* Alle behandlinger — collapsed full list (SEO content kept in DOM) */}
       <section id="alle-behandlinger" className="pb-20 md:pb-28 scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <FadeIn>
-            <h3 className="text-[18px] font-semibold text-ink mb-6">Alle behandlinger</h3>
-          </FadeIn>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {[
-              ['Caries', 'Behandling af huller i tænderne med fyldninger og forebyggelse.'],
-              ['Tandkødsbetændelse & parodontitis', 'Behandling og forebyggelse af sygdomme i tandkødet.'],
-              ['Rodbehandling', 'Fjernelse af betændt væv i tandens rodkanal.'],
-              ['Revner i tænderne', 'Diagnosticering og behandling af dentinfrakturer.'],
-              ['Visdomstænder', 'Vurdering og evt. fjernelse af visdomstænder.'],
-              ['Efter fjernelse af en tand', 'Vejledning og opfølgning efter tandudtrækning.'],
-              ['Erosioner', 'Behandling og forebyggelse af syreskader på emaljen.'],
-              ['Blegning af tænder', 'Professionel tandblegning for et hvidere smil.'],
-              ['Kroner og broer', 'Faste erstatninger der genskaber funktion og æstetik.'],
-              ['Hel- og delproteser', 'Aftagelige erstatninger ved tab af flere tænder.'],
-              ['Kosmetisk tandbehandling', 'Æstetiske behandlinger for dit bedste smil.'],
-              ['Implantater', 'Kunstige tandrødder som fundament for kroner og broer.'],
-            ].map(([title, desc], i) => (
-              <div key={i} className="flex gap-3 p-4 rounded-xl border border-line bg-white hover:border-accent/20 transition-colors">
-                <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
-                <div>
-                  <h4 className="text-[14px] font-medium text-ink">{title}</h4>
-                  <p className="text-[12px] text-ink-muted mt-0.5">{desc}</p>
-                </div>
+            <details className="group">
+              <summary className="flex items-center justify-between gap-4 py-4 px-5 cursor-pointer list-none rounded-xl border border-line bg-white hover:border-accent/30 hover:bg-surface transition-colors text-[15px] font-semibold text-ink">
+                <span>Se alle 12 behandlinger</span>
+                <ChevronDown className="w-4 h-4 text-ink-faint shrink-0 transition-transform duration-200 group-open:rotate-180" />
+              </summary>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
+                {[
+                  ['Caries', 'Behandling af huller i tænderne med fyldninger og forebyggelse.'],
+                  ['Tandkødsbetændelse & parodontitis', 'Behandling og forebyggelse af sygdomme i tandkødet.'],
+                  ['Rodbehandling', 'Fjernelse af betændt væv i tandens rodkanal.'],
+                  ['Revner i tænderne', 'Diagnosticering og behandling af dentinfrakturer.'],
+                  ['Visdomstænder', 'Vurdering og evt. fjernelse af visdomstænder.'],
+                  ['Efter fjernelse af en tand', 'Vejledning og opfølgning efter tandudtrækning.'],
+                  ['Erosioner', 'Behandling og forebyggelse af syreskader på emaljen.'],
+                  ['Blegning af tænder', 'Professionel tandblegning for et hvidere smil.'],
+                  ['Kroner og broer', 'Faste erstatninger der genskaber funktion og æstetik.'],
+                  ['Hel- og delproteser', 'Aftagelige erstatninger ved tab af flere tænder.'],
+                  ['Kosmetisk tandbehandling', 'Æstetiske behandlinger for dit bedste smil.'],
+                  ['Implantater', 'Kunstige tandrødder som fundament for kroner og broer.'],
+                ].map(([title, desc], i) => (
+                  <div key={i} className="flex gap-3 p-4 rounded-xl border border-line bg-white hover:border-accent/20 transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-2" />
+                    <div>
+                      <h4 className="text-[14px] font-medium text-ink">{title}</h4>
+                      <p className="text-[12px] text-ink-muted mt-0.5">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </details>
+          </FadeIn>
         </div>
       </section>
 
@@ -408,6 +424,36 @@ export default function App() {
         </div>
       </section>
 
+      {/* Sådan starter et besøg — friction-reducing walkthrough */}
+      <section id="forste-besog" className="py-20 md:py-28 bg-surface-alt border-t border-line">
+        <div className="max-w-[900px] mx-auto px-6">
+          <FadeIn className="text-center mb-12">
+            <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">For nye patienter</p>
+            <h2 className="text-[32px] md:text-[40px] font-bold tracking-[-0.02em] text-ink leading-tight">Sådan starter et besøg</h2>
+            <p className="text-ink-muted text-[15px] mt-3">Første samtale er en samtale, ikke en behandling.</p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <ol className="space-y-5">
+              {[
+                'Du ringer i telefontiden — vi spørger ikke om dit cpr-nummer eller forsikring i første samtale.',
+                'Vi booker en uforpligtende første samtale, ikke en behandling.',
+                'Du møder Hana eller Allan i venteværelset — ingen klinikkåbe, intet stort kraftigt værktøj på bordet.',
+                'Vi kigger, vi forklarer, vi laver en plan i dit tempo.',
+                'Du tager hjem og beslutter dig.',
+              ].map((step, i) => (
+                <li key={i} className="flex gap-5 items-start bg-white rounded-2xl border border-line p-5 sm:p-6">
+                  <div className="w-9 h-9 rounded-lg bg-accent-light text-accent text-[14px] font-bold flex items-center justify-center shrink-0">
+                    {i + 1}
+                  </div>
+                  <p className="text-[15px] text-ink leading-relaxed pt-1.5">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section id="faq" className="py-20 md:py-28 bg-white border-t border-line">
         <div className="max-w-[780px] mx-auto px-6">
@@ -425,6 +471,10 @@ export default function App() {
                   a: <>Ja, vi tager løbende imod nye patienter — både hvis du flytter fra kommunal tandpleje eller skifter fra en anden tandlæge. Du behøver ikke overflytte din journal før første besøg; vi ordner det bagefter.</>,
                 },
                 {
+                  q: 'Jeg har ikke været hos tandlægen i mange år — bliver der skældt ud?',
+                  a: <>Nej. Aldrig. Vi har set det hele før, og første besøg er en samtale, ikke en eksamen. Vi kigger, vi forklarer, og vi lægger en plan i dit tempo.</>,
+                },
+                {
                   q: 'Kan jeg få bedøvelse eller narkose?',
                   a: <>Ja. Vi bruger lokalbedøvelse rutinemæssigt ved behandlinger hvor det er relevant. Ved større eller angstfremkaldende indgreb er der mulighed for narkose — <a href="tel:65313300" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">ring 65 31 33 00</a> og spørg, så planlægger vi det sammen.</>,
                 },
@@ -435,10 +485,6 @@ export default function App() {
                 {
                   q: 'Har I ventetid?',
                   a: <>Ved akut behov kan vi ofte finde en tid samme dag i åbningstiden. Til rutineeftersyn <a href="tel:65313300" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">ringer du</a> og aftaler en tid, der passer dig.</>,
-                },
-                {
-                  q: 'Hvordan parkerer jeg?',
-                  a: <>Der er tidsbegrænset gadeparkering omkring klinikken på Adelgade 5. Offentlige p-pladser ved Havnen og Torvet ligger få minutters gang fra klinikken.</>,
                 },
               ].map((item, i) => (
                 <details key={i} className="group border-b border-line">
@@ -472,7 +518,7 @@ export default function App() {
                 role: 'Tandlæge',
                 specialty: 'Kirurgi, implantologi & angstbehandling',
                 loc: 'Indehaver',
-                bio: 'Allan er klinikejer og driver Tandkvalitet sammen med Hana. Han udfører alle behandlinger på klinikken — kirurgi, implantater, rodbehandling og almen tandpleje — og er desuden konsulent for andre tandlæger og opererer for klinikker landet over.',
+                bio: 'Allan er klinikejer og driver Tandkvalitet sammen med Hana. Han udfører alle behandlinger på klinikken — kirurgi, implantater, rodbehandling og almen tandpleje — og lægger særlig vægt på at forklare hvert skridt grundigt, så du føler dig tryg gennem hele forløbet.',
                 img: allanPortrait,
               },
               {
@@ -567,6 +613,9 @@ export default function App() {
           <img
             src={ctaChurch}
             alt=""
+            aria-hidden="true"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-ink/90" />
@@ -588,27 +637,6 @@ export default function App() {
             info@tandkvalitet.dk
           </a>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* Nyttige links */}
-      <section className="bg-white border-t border-line py-12">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <h3 className="text-[14px] font-semibold text-ink mb-5">Nyttige links</h3>
-          <div className="flex flex-wrap gap-3">
-            {[
-              ['Tandlægeforeningen', 'https://www.tandlaegeforeningen.dk'],
-              ['Sundhed.dk', 'https://www.sundhed.dk'],
-              ['Sygeforsikring Danmark', 'https://www.sygeforsikring.dk'],
-              ['Tandlægevagten Fyn', 'https://www.regionsyddanmark.dk/wm211080'],
-              ['Skift tandlæge', '#'],
-              ['Tilskudsmuligheder', '#'],
-            ].map(([label, url], i) => (
-              <a key={i} href={url} target={url.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="text-[13px] text-ink-muted px-4 py-2 rounded-lg border border-line hover:border-accent/30 hover:text-accent transition-colors">
-                {label}
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -641,5 +669,6 @@ export default function App() {
         </div>
       </footer>
     </div>
+    </MotionConfig>
   )
 }
