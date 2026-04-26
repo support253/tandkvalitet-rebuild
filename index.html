@@ -1,10 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="da">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tandkvalitet-rebuild</title>
+    <title>Tandkvalitet Nyborg — Tandlæger Hana El-khawaga & Allan Friis Pedersen</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "@id": "https://tandkvalitet.dk/#organization",
+        "name": "Tandkvalitet Nyborg",
+        "url": "https://tandkvalitet.dk/",
+        "telephone": "+45-65-31-33-00",
+        "email": "info@tandkvalitet.dk",
+        "description": "Tandklinik i Nyborg med to erfarne indehavere. Implantologi som speciale, fokus på tandlægeskræk.",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Adelgade 5",
+          "addressLocality": "Nyborg",
+          "postalCode": "5800",
+          "addressCountry": "DK",
+          "addressRegion": "Region Syddanmark"
+        },
+        "areaServed": [
+          {"@type": "City", "name": "Nyborg"},
+          {"@type": "City", "name": "Kerteminde"},
+          {"@type": "City", "name": "Ullerslev"},
+          {"@type": "AdministrativeArea", "name": "Fyn"}
+        ],
+        "openingHoursSpecification": [
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "15:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:00", "closes": "15:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "15:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "15:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "14:00"}
+        ],
+        "employee": [
+          {"@type": "Person", "name": "Hana El-khawaga", "jobTitle": "Tandlæge, Indehaver"},
+          {"@type": "Person", "name": "Allan Friis Pedersen", "jobTitle": "Tandlæge, Indehaver"}
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

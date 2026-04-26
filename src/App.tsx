@@ -165,11 +165,6 @@ export default function App() {
 
         <div className="max-w-[1200px] mx-auto px-6 pb-16 md:pb-24 relative z-20 w-full">
           <div className="max-w-[640px]">
-            <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-accent/90 text-white text-[12px] font-medium px-3 py-1.5 rounded-full mb-6 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Modtager nye patienter
-            </motion.div>
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-[clamp(36px,5.5vw,72px)] text-white font-bold leading-[1.05] tracking-[-0.03em]">
               Dine tænder.<br />Dit smil.
@@ -187,6 +182,14 @@ export default function App() {
                 Se behandlinger
               </a>
             </motion.div>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.75 }}
+              className="text-[13px] text-white/70 mt-7 leading-relaxed">
+              <strong className="text-white font-semibold">Vi modtager nye patienter</strong> · Åbent man–fre fra 08:00 · Telefontid 08–12 hverdage
+            </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.85 }}
+              className="text-[12px] text-white/50 mt-2 leading-relaxed">
+              Uden for telefontid: <a href="mailto:info@tandkvalitet.dk" className="text-white/70 hover:text-white underline decoration-white/20 hover:decoration-white/60 transition-colors">info@tandkvalitet.dk</a> · Akut aften/weekend: <a href="tel:+4599440809" className="text-white/70 hover:text-white underline decoration-white/20 hover:decoration-white/60 transition-colors">Tandlægevagten Fyn 99 44 08 09</a>
+            </motion.p>
           </div>
         </div>
       </section>
@@ -402,6 +405,54 @@ export default function App() {
             </div>
             </SlideIn>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-20 md:py-28 bg-white border-t border-line">
+        <div className="max-w-[780px] mx-auto px-6">
+          <FadeIn className="text-center mb-12">
+            <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">Ofte stillede spørgsmål</p>
+            <h2 className="text-[32px] md:text-[40px] font-bold tracking-[-0.02em] text-ink leading-tight">Hvad vil du gerne vide?</h2>
+            <p className="text-ink-muted text-[15px] mt-3">De spørgsmål vi oftest får, før patienter bestiller første tid.</p>
+          </FadeIn>
+
+          <FadeIn delay={0.15}>
+            <div className="border-t border-line">
+              {[
+                {
+                  q: 'Tager I imod nye patienter?',
+                  a: <>Ja, vi tager løbende imod nye patienter — både hvis du flytter fra kommunal tandpleje eller skifter fra en anden tandlæge. Du behøver ikke overflytte din journal før første besøg; vi ordner det bagefter.</>,
+                },
+                {
+                  q: 'Kan jeg få bedøvelse eller narkose?',
+                  a: <>Ja. Vi bruger lokalbedøvelse rutinemæssigt ved behandlinger hvor det er relevant. Ved større eller angstfremkaldende indgreb er der mulighed for narkose — <a href="tel:65313300" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">ring 65 31 33 00</a> og spørg, så planlægger vi det sammen.</>,
+                },
+                {
+                  q: 'Hvad koster et rutineeftersyn?',
+                  a: <>Vores priser følger <a href="https://www.tandlaegeforeningen.dk/" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">Tandlægeforeningens overenskomst</a> samt sundhed.dk. Et årligt eftersyn for voksne er delvist dækket af sygesikringen. <a href="tel:65313300" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">Ring 65 31 33 00</a> hvis du vil have en konkret pris inden du kommer.</>,
+                },
+                {
+                  q: 'Har I ventetid?',
+                  a: <>Ved akut behov kan vi ofte finde en tid samme dag i åbningstiden. Til rutineeftersyn <a href="tel:65313300" className="text-accent hover:text-accent-dark underline decoration-accent/30 hover:decoration-accent/70 transition-colors">ringer du</a> og aftaler en tid, der passer dig.</>,
+                },
+                {
+                  q: 'Hvordan parkerer jeg?',
+                  a: <>Der er tidsbegrænset gadeparkering omkring klinikken på Adelgade 5. Offentlige p-pladser ved Havnen og Torvet ligger få minutters gang fra klinikken.</>,
+                },
+              ].map((item, i) => (
+                <details key={i} className="group border-b border-line">
+                  <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer list-none text-[16px] font-medium text-ink hover:text-accent transition-colors">
+                    <span>{item.q}</span>
+                    <ChevronDown className="w-4 h-4 text-ink-faint shrink-0 transition-transform duration-200 group-open:rotate-180" />
+                  </summary>
+                  <div className="pb-5 -mt-1 text-[14px] text-ink-muted leading-relaxed pr-8">
+                    {item.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
