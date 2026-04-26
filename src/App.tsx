@@ -530,36 +530,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Sådan starter et besøg — friction-reducing walkthrough */}
-      <section id="forste-besog" className="py-20 md:py-28 bg-surface-alt border-t border-line">
-        <div className="max-w-[900px] mx-auto px-6">
-          <FadeIn className="text-center mb-12">
-            <p className="text-[12px] font-semibold text-accent uppercase tracking-widest mb-3">For nye patienter</p>
-            <h2 className="text-[32px] md:text-[40px] font-bold tracking-[-0.02em] text-ink leading-tight">Sådan starter et besøg</h2>
-            <p className="text-ink-muted text-[15px] mt-3">Første samtale er en samtale, ikke en behandling.</p>
-          </FadeIn>
-
-          <FadeIn delay={0.15}>
-            <ol className="space-y-5">
-              {[
-                'Du ringer i telefontiden — vi spørger ikke om dit cpr-nummer eller forsikring i første samtale.',
-                'Vi booker en uforpligtende første samtale, ikke en behandling.',
-                'Du møder Hana eller Allan i venteværelset — ingen klinikkåbe, intet stort kraftigt værktøj på bordet.',
-                'Vi kigger, vi forklarer, vi laver en plan i dit tempo.',
-                'Du tager hjem og beslutter dig.',
-              ].map((step, i) => (
-                <li key={i} className="flex gap-5 items-start bg-white rounded-2xl border border-line p-5 sm:p-6">
-                  <div className="w-9 h-9 rounded-lg bg-accent-light text-accent text-[14px] font-bold flex items-center justify-center shrink-0">
-                    {i + 1}
-                  </div>
-                  <p className="text-[15px] text-ink leading-relaxed pt-1.5">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section id="faq" className="py-20 md:py-28 bg-white border-t border-line">
         <div className="max-w-[780px] mx-auto px-6">
