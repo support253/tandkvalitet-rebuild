@@ -12,7 +12,10 @@ import implantaterRoom from './assets/implantater-room.jpg'
 import tandlaegeskraekWaiting from './assets/tandlaegeskraek-waiting.jpg'
 import allanPortrait from './assets/allan-portrait.jpg'
 import hanaPortrait from './assets/hana-portrait.jpg'
-import lokationExterior from './assets/lokation-exterior.jpg'
+import lokationFacade from './assets/lokation-facade.jpg'
+import lokationSign from './assets/lokation-sign.jpg'
+import lokationEntrance from './assets/lokation-entrance.jpg'
+import lokationDoor from './assets/lokation-door.jpg'
 import ctaChurch from './assets/cta-church.jpg'
 
 function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
@@ -448,12 +451,11 @@ export default function App() {
 
           <FadeIn delay={0.2}>
           <div className="bg-white rounded-2xl border border-line overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
-            <div className="relative h-[280px] lg:h-auto overflow-hidden">
-              <img
-                src={lokationExterior}
-                alt="Tandkvalitet, Adelgade 5, Nyborg — facade"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative h-[280px] lg:h-auto overflow-hidden grid grid-cols-2 grid-rows-2 gap-1 bg-line">
+              <img src={lokationFacade} alt="Tandkvalitet, Adelgade 5 — facade" className="w-full h-full object-cover" />
+              <img src={lokationSign} alt="Tandlægerne Adelgade — skilt" className="w-full h-full object-cover" />
+              <img src={lokationEntrance} alt="Indgang — trappen op til klinikken" className="w-full h-full object-cover" />
+              <img src={lokationDoor} alt="Klinikkens dør med tandsymbol" className="w-full h-full object-cover" />
             </div>
             <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
               <h3 className="text-[22px] font-semibold text-ink mb-6">Tandkvalitet Nyborg</h3>
