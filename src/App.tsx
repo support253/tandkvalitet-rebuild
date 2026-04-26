@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react'
 import { Phone, Mail, MapPin, ArrowRight, ArrowUpRight, Check, Clock, ChevronDown } from 'lucide-react'
 import heroReception from './assets/hero-reception.jpg'
+import heroDuo from './assets/hero-duo.png'
 import behandlingerAction from './assets/behandlinger-action.jpg'
 import serviceGenerel from './assets/service-generel.jpg'
 import serviceKirurgi from './assets/service-kirurgi.jpg'
@@ -152,7 +153,17 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/20" />
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 pb-16 md:pb-24 relative z-10 w-full">
+        {/* Hana + Allan duo cutout — desktop only, anchored bottom-right */}
+        <motion.img
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          src={heroDuo}
+          alt="Hana El-khawaga og Allan Friis Pedersen — tandlæger og indehavere"
+          className="hidden lg:block absolute bottom-0 right-0 xl:right-8 z-10 h-[78%] w-auto pointer-events-none select-none object-contain object-bottom drop-shadow-2xl"
+        />
+
+        <div className="max-w-[1200px] mx-auto px-6 pb-16 md:pb-24 relative z-20 w-full">
           <div className="max-w-[640px]">
             <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center gap-2 bg-accent/90 text-white text-[12px] font-medium px-3 py-1.5 rounded-full mb-6 backdrop-blur-sm">
