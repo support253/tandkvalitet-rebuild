@@ -298,7 +298,7 @@ export default function App() {
           <div className="relative h-[300px] lg:h-auto">
             <img
               src={implantaterRoom}
-              alt="Behandlingsrum til implantatbehandling"
+              alt="Præcisionsarbejde med implantatkomponent"
               className="w-full h-full object-cover"
             />
           </div>
