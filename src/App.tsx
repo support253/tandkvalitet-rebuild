@@ -44,19 +44,18 @@ function SlideIn({ children, delay = 0, direction = 'left', className = '' }: { 
 }
 
 const treatments = [
-  { name: 'Specielle implantatbehandlinger', href: '#implantater', external: false },
-  { name: 'Implantatbehandlinger', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/implantat-en-kunstig-tandrod/', external: true },
-  { name: 'Caries', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/caries/', external: true },
-  { name: 'Tandkødsbetændelse og parodontitis', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/tandkoedsbetaendelse/', external: true },
-  { name: 'Rodbehandling', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/rodbehandling/', external: true },
-  { name: 'Revner i tænderne', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/revner-i-taenderne-dentininfraktioner/', external: true },
-  { name: 'Visdomstænder', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/s-%C3%A5/visdomstaender/', external: true },
-  { name: 'Efter fjernelse af en tand', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/efter-fjernelse-af-en-tand/', external: true },
-  { name: 'Erosioner', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/a-f/erosioner-syreskader-paa-taenderne/', external: true },
-  { name: 'Kosmetisk tandbehandling', href: 'https://www.tandlaegeforeningen.dk/patienter/livsstil/kosmetisk-tandbehandling/', external: true },
-  { name: 'Kroner og broer', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/g-k/kroner-og-broer/', external: true },
-  { name: 'Helprotese', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/', external: true },
-  { name: 'Delprotese', href: 'https://www.tandlaegeforeningen.dk/patienter/tandsygdomme-gener-og-behandlinger/p-r/ny-protese/', external: true },
+  { name: 'Implantater & avanceret kirurgi', href: '#implantater', external: false },
+  { name: 'Caries', href: '#alle-behandlinger', external: false },
+  { name: 'Tandkødsbetændelse & parodontitis', href: '#alle-behandlinger', external: false },
+  { name: 'Rodbehandling', href: '#alle-behandlinger', external: false },
+  { name: 'Revner i tænderne', href: '#alle-behandlinger', external: false },
+  { name: 'Visdomstænder', href: '#alle-behandlinger', external: false },
+  { name: 'Efter fjernelse af en tand', href: '#alle-behandlinger', external: false },
+  { name: 'Erosioner', href: '#alle-behandlinger', external: false },
+  { name: 'Kosmetisk tandbehandling', href: '#alle-behandlinger', external: false },
+  { name: 'Kroner & broer', href: '#alle-behandlinger', external: false },
+  { name: 'Hel- og delproteser', href: '#alle-behandlinger', external: false },
+  { name: 'Akut tandhjælp', href: '#behandlinger', external: false },
 ]
 
 export default function App() {
@@ -225,7 +224,7 @@ export default function App() {
                 },
                 {
                   title: 'Implantater & kirurgi',
-                  desc: 'All-on-4, guided surgery, knogerekonstruktion og A-PRF. Vores nationale speciale.',
+                  desc: 'All-on-4, knogerekonstruktion og A-PRF. Vores nationale speciale.',
                   img: serviceKirurgi,
                   highlight: true,
                 },
@@ -259,7 +258,7 @@ export default function App() {
       </section>
 
       {/* Alle behandlinger — full list */}
-      <section className="pb-20 md:pb-28">
+      <section id="alle-behandlinger" className="pb-20 md:pb-28 scroll-mt-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <FadeIn>
             <h3 className="text-[18px] font-semibold text-ink mb-6">Alle behandlinger</h3>
@@ -317,9 +316,9 @@ export default function App() {
             <div className="space-y-6">
               {[
                 ['All-on-4', 'Fuld kæbebro på 4 implantater. Faste tænder samme dag.'],
-                ['Guided Surgery', 'CT-scanning og 3D-planlægning. Nye tænder på 1 time.'],
                 ['Knogerekonstruktion', 'Genopbygning med din egen knogle og moderne materialer.'],
                 ['A-PRF', 'Dit eget blod stimulerer sårheling efter kirurgiske indgreb.'],
+                ['Henvisninger fra hele landet', 'Kolleger henviser komplekse implantatsager til os.'],
               ].map(([title, desc], i) => (
                 <div key={i} className="flex gap-4 items-start">
                   <div className="w-8 h-8 rounded-lg bg-white/10 text-white text-[12px] font-bold flex items-center justify-center shrink-0">
@@ -335,8 +334,8 @@ export default function App() {
 
             <div className="flex gap-8 mt-12 pt-8 border-t border-white/10">
               <div>
-                <div className="text-[32px] font-light tracking-[-0.02em]">1 time</div>
-                <p className="text-[12px] text-white/40">Guidet kirurgi</p>
+                <div className="text-[32px] font-light tracking-[-0.02em]">Pionerer</div>
+                <p className="text-[12px] text-white/40">Først i Danmark med All-on-4</p>
               </div>
               <div>
                 <div className="text-[32px] font-light tracking-[-0.02em]">Dag 1</div>
@@ -371,10 +370,10 @@ export default function App() {
                 Vi er meget opmærksomme på, at nogle kan lide af tandlægeskræk. Faktisk er det op på 40% af alle voksne. Du er langt fra den eneste.
               </p>
               <p className="text-ink-muted text-[15px] leading-relaxed mb-8">
-                Derfor tilstræber vi at gøre dit besøg så behageligt som muligt. Vi behandler altid i dit tempo, og du bestemmer hvornår vi holder pause. Hana interesserer sig særligt for angstpatienter og yder altid en omsorgsfuld behandling.
+                Derfor tilstræber vi at gøre dit besøg så behageligt som muligt. Vi behandler altid i dit tempo, og du bestemmer hvornår vi holder pause. Både Hana og Allan har stor erfaring med angstpatienter og yder altid en omsorgsfuld behandling.
               </p>
               <div className="flex flex-col gap-3 mb-8">
-                {['Behandling i dit tempo', 'Forklar-først tilgang', 'Ofte kureret på 1-2 besøg', 'Særlig ekspertise med Hana'].map((item, i) => (
+                {['Behandling i dit tempo', 'Forklar-først tilgang', 'Ofte kureret på 1-2 besøg', 'Erfaring med tandlægeskræk'].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center">
                       <Check className="w-3 h-3 text-accent" />
@@ -406,17 +405,17 @@ export default function App() {
               {
                 name: 'Allan Friis Pedersen',
                 role: 'Tandlæge',
-                specialty: 'Kirurgi & Implantologi',
+                specialty: 'Kirurgi, implantologi & angstbehandling',
                 loc: 'Indehaver',
-                bio: 'Allan interesserer sig specielt for kirurgi og implantologi og tilbyder avancerede rekonstruktioner. Han er konsulent for andre tandlæger og opererer for klinikker landet over.',
+                bio: 'Allan er klinikejer og driver Tandkvalitet sammen med Hana. Han udfører alle behandlinger på klinikken — kirurgi, implantater, rodbehandling og almen tandpleje — og er desuden konsulent for andre tandlæger og opererer for klinikker landet over.',
                 img: allanPortrait,
               },
               {
                 name: 'Hana El-khawaga',
                 role: 'Tandlæge',
-                specialty: 'Parodontose & Angstbehandling',
+                specialty: 'Kirurgi, implantologi & angstbehandling',
                 loc: 'Indehaver',
-                bio: 'Hana har bred erfaring og interesserer sig særligt for tandlægeskræk, paradentosebehandling og rodbehandlinger. Hun yder altid en perfektionistisk og omsorgsfuld behandling.',
+                bio: 'Hana er klinikejer og driver Tandkvalitet sammen med Allan. Hun udfører alle behandlinger på klinikken — kirurgi, implantater, rodbehandling og almen tandpleje — og yder altid en perfektionistisk og omsorgsfuld behandling med stor opmærksomhed på patientens tryghed.',
                 img: hanaPortrait,
               },
             ].map((p, i) => (
