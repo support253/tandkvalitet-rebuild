@@ -5,14 +5,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Tandlæge i Nyborg — Tandkvalitet | Implantater, kirurgi & tryg behandling</title>
-    <meta name="description" content="Tandlæge i Nyborg siden august 2024. Professionel behandling, fokus på tandlægeskræk og implantologi som speciale. Ring 65 31 33 00 for tid." />
+    <title>Tandlæge i Nyborg | Tandkvalitet, Adelgade 5 | Implantater og tryg behandling</title>
+    <meta name="description" content="Tandlæge på Adelgade 5 i Nyborg. Tryg behandling ved tandlægeskræk, All-on-4 og avanceret implantologi. Vi modtager nye patienter. Ring 65 31 33 00." />
     <link rel="canonical" href="https://tandkvalitet.dk/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!--
       noindex: this Vercel preview build runs alongside the legacy WordPress site
-      that still lives at tandkvalitet.dk. Remove this meta tag once Thomas swaps
-      the production DNS to Vercel and the rebuild becomes the live site.
+      that still lives at tandkvalitet.dk. Remove this meta tag once the
+      production DNS points here and the rebuild becomes the live site.
     -->
     <meta name="robots" content="noindex, nofollow" />
 
@@ -22,13 +26,27 @@
         "@type": "Dentist",
         "@id": "https://tandkvalitet.dk/#organization",
         "name": "Tandkvalitet Nyborg",
+        "alternateName": ["Tandlægerne Adelgade", "Tandkvalitet"],
         "url": "https://tandkvalitet.dk/",
         "telephone": "+45-65-31-33-00",
         "email": "info@tandkvalitet.dk",
-        "description": "Tandklinik i Nyborg med to erfarne indehavere. Implantologi som speciale, fokus på tandlægeskræk.",
-        "priceRange": "$$",
+        "description": "Tandklinik på Adelgade 5 i Nyborg, drevet af tandlægerne Allan Friis Pedersen og Hana El-khawaga siden august 2024. All-on-4, avanceret implantologi og tryg behandling ved tandlægeskræk.",
         "image": "https://tandkvalitet.dk/lokation-facade.jpg",
+        "hasMap": "https://maps.app.goo.gl/bpQ757HEAKsQAwjU6",
+        "isAcceptingNewPatients": true,
         "medicalSpecialty": ["OralSurgery", "CosmeticDentistry"],
+        "availableService": [
+          {"@type": "MedicalProcedure", "name": "All-on-4"},
+          {"@type": "MedicalProcedure", "name": "Implantatbehandling"},
+          {"@type": "MedicalProcedure", "name": "Knogleopbygning"},
+          {"@type": "MedicalProcedure", "name": "A-PRF"},
+          {"@type": "MedicalProcedure", "name": "Rodbehandling"},
+          {"@type": "MedicalProcedure", "name": "Behandling af parodontitis"},
+          {"@type": "MedicalProcedure", "name": "Fjernelse af visdomstænder"},
+          {"@type": "MedicalProcedure", "name": "Kroner og broer"},
+          {"@type": "MedicalProcedure", "name": "Hel- og delproteser"},
+          {"@type": "MedicalProcedure", "name": "Kosmetisk tandbehandling"}
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Adelgade 5",
@@ -49,64 +67,30 @@
           {"@type": "AdministrativeArea", "name": "Fyn"}
         ],
         "openingHoursSpecification": [
-          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "08:00", "closes": "15:00"},
-          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "08:00", "closes": "15:00"},
-          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "15:00"},
-          {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "08:00", "closes": "15:00"},
+          {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"], "opens": "08:00", "closes": "15:00"},
           {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "14:00"}
         ],
         "employee": [
-          {"@type": "Person", "name": "Hana El-khawaga", "jobTitle": "Tandlæge, Indehaver"},
-          {"@type": "Person", "name": "Allan Friis Pedersen", "jobTitle": "Tandlæge, Indehaver"}
+          {"@type": "Person", "name": "Hana El-khawaga", "jobTitle": "Tandlæge, indehaver"},
+          {"@type": "Person", "name": "Allan Friis Pedersen", "jobTitle": "Tandlæge, indehaver"}
         ]
       }
     </script>
 
+    <!-- Keep in sync with the faqs array in src/App.tsx -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Tager I imod nye patienter?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja, vi tager løbende imod nye patienter — både hvis du flytter fra kommunal tandpleje eller skifter fra en anden tandlæge. Du behøver ikke overflytte din journal før første besøg; vi ordner det bagefter."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Jeg har ikke været hos tandlægen i mange år — bliver der skældt ud?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nej. Aldrig. Vi har set det hele før, og første besøg er en samtale, ikke en eksamen. Vi kigger, vi forklarer, og vi lægger en plan i dit tempo."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kan jeg få bedøvelse eller narkose?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ja. Vi bruger lokalbedøvelse rutinemæssigt ved behandlinger hvor det er relevant. Ved større eller angstfremkaldende indgreb er der mulighed for narkose — ring 65 31 33 00 og spørg, så planlægger vi det sammen."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Hvad koster et rutineeftersyn?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Vores priser følger Tandlægeforeningens overenskomst samt sundhed.dk. Et årligt eftersyn for voksne er delvist dækket af sygesikringen. Ring 65 31 33 00 hvis du vil have en konkret pris inden du kommer."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Har I ventetid?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ved akut behov kan vi ofte finde en tid samme dag i åbningstiden. Til rutineeftersyn ringer du og aftaler en tid, der passer dig."
-            }
-          }
+          {"@type": "Question", "name": "Tager I imod nye patienter?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, vi tager løbende imod nye patienter, både hvis du kommer fra den kommunale tandpleje eller skifter fra en anden tandlæge. Du behøver ikke flytte din journal før første besøg. Det ordner vi bagefter."}},
+          {"@type": "Question", "name": "Jeg har ikke været hos tandlægen i mange år. Bliver der skældt ud?", "acceptedAnswer": {"@type": "Answer", "text": "Nej. Vi har set det hele før, og første besøg er en samtale, ikke en eksamen. Vi kigger, vi forklarer, og vi lægger en plan i dit tempo."}},
+          {"@type": "Question", "name": "Kan jeg blive bedøvet?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Vi bruger lokalbedøvelse ved de behandlinger, hvor det er relevant. Er du nervøs for et større indgreb, så ring 65 31 33 00 og fortæl os det, så planlægger vi det sammen."}},
+          {"@type": "Question", "name": "Hvad koster et eftersyn?", "acceptedAnswer": {"@type": "Answer", "text": "Vores priser følger Tandlægeforeningens overenskomst og sundhed.dk. Et årligt eftersyn for voksne er delvist dækket af den offentlige sygesikring. Ring 65 31 33 00, hvis du vil have en konkret pris, før du kommer."}},
+          {"@type": "Question", "name": "Har I ventetid?", "acceptedAnswer": {"@type": "Answer", "text": "Akutte tilfælde prioriteres. Til et almindeligt eftersyn ringer du i telefontiden 08–12 og aftaler en tid, der passer dig."}},
+          {"@type": "Question", "name": "Hvad gør jeg ved akut tandpine om aftenen eller i weekenden?", "acceptedAnswer": {"@type": "Answer", "text": "Ring til Tandlægevagten Fyn på 99 44 08 09. I vores åbningstid ringer du til os på 65 31 33 00, og akutte tilfælde prioriteres."}},
+          {"@type": "Question", "name": "Hvad er All-on-4?", "acceptedAnswer": {"@type": "Answer", "text": "All-on-4 er en fast bro til en hel kæbe, der sidder på fire implantater. Broen sættes på samme dag, som tænderne trækkes ud, så du får fastsiddende tænder samme dag. Vi var de første i Danmark, der udførte behandlingen."}},
+          {"@type": "Question", "name": "Hvad hvis jeg bliver forhindret?", "acceptedAnswer": {"@type": "Answer", "text": "Meld afbud senest kl. 12 dagen før. Udebliver du uden afbud, opkræver vi et gebyr på 250 kr."}}
         ]
       }
     </script>

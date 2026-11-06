@@ -1,25 +1,132 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*
+  Fonts are loaded from index.html (default) and by the font switcher
+  (?fonts in the URL) for the alternatives. Default: Plus Jakarta Sans for
+  both headings (800) and body text.
+*/
 
 @theme {
-  --color-ink: #1a1a1a;
-  --color-ink-light: #3d3d3d;
-  --color-ink-muted: #6b7280;
-  --color-ink-faint: #9ca3af;
-  --color-surface: #f9f9f8;
-  --color-surface-alt: #f3f2ef;
-  --color-line: #e5e5e3;
+  --color-ink: #12201f;
+  --color-ink-light: #2e3b3a;
+  --color-ink-muted: #4d5b5a;
+  --color-ink-faint: #8a9695;
+  --color-surface: #f8f7f3;
+  --color-surface-alt: #f2efe7;
+  --color-cream: #f6f2ea;
+  --color-line: #e6e2d8;
   --color-accent: #2baeb5;
-  --color-accent-light: #eaf7f8;
+  --color-accent-light: #e6f6f7;
   --color-accent-lighter: #f2fafb;
-  --color-accent-dark: #229196;
+  --color-accent-dark: #22949a;
+  /* AA-safe teal for small text on white/cream (5.4:1 on white) */
+  --color-accent-ink: #16747a;
+  --color-night: #0e2224;
   --color-white: #ffffff;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --shadow-soft: 0 1px 2px rgba(18, 32, 31, 0.04), 0 8px 28px -10px rgba(18, 32, 31, 0.10);
+}
+
+/*
+  Heading weight. Unlayered on purpose so it beats Tailwind's font-bold on
+  h1/h2. The preview font switcher (?fonts) overrides --display-weight.
+*/
+:root { --display-weight: 800; }
+h1, h2 { font-weight: var(--display-weight); }
+
+/*
+  Scale the whole page up on wide screens (1440p and up), so it does not read
+  small. Anything sized in vh/vw divides by --z to stay one screen tall/wide.
+*/
+:root { --z: 1; }
+@media (min-width: 1700px) { :root { --z: 1.15; } }
+@media (min-width: 2200px) { :root { --z: 1.3; } }
+@media (min-width: 2400px) { :root { --z: 1.4; } }
+
+/*
+  One shared content column for the nav pill, hero text and every section, so
+  all left/right edges line up. 1280px: wider than the original 1120 (too much
+  empty space on 1920/2560), narrower than 1480 (nav "so big", team section and
+  footer too big to take in at a glance, hero text sticking out past the nav).
+*/
+.wrap { width: min(100% - 40px, 1280px); margin-inline: auto; }
+.wrap-nav { width: min(100% - 24px, 1280px); margin-inline: auto; }
+@media (min-width: 768px) { .wrap, .wrap-nav { width: min(100% - 80px, 1280px); } }
+@media (min-width: 1280px) { .wrap, .wrap-nav { width: min(100% - 112px, 1280px); } }
+/*
+  Hero cutout of Hana and Allan (box = the opaque 1471x864 area of
+  hero-duo.webp, cropped in App.tsx). Its flat bottom edge tucks 4px behind the trust card (card overlaps the hero
+  by 56px from md up), and it sits 24px inside the card's right edge so the
+  rounded corner never shows the cut.
+*/
+.duo-pos { bottom: 52px; right: 64px; width: min(46%, 760px); height: auto; }
+@media (min-width: 1280px) { .duo-pos { right: calc((100% - min(100% - 112px, 1280px)) / 2 + 24px); } }
+
+/*
+  1920-class screens (the --z 1.15 band): hero 10% smaller so the trust bar is
+  fully visible on a 1080p screen (Thomas: 2560 looks great, 1920 too big).
+  Column, duo offset and duo cap are divided by 0.9 inside so the rendered
+  edges still line up with the nav.
+*/
+@media (min-width: 1700px) and (max-width: 2199.98px) {
+  .hero-fit { zoom: 0.9; }
+  .hero-fit .wrap { width: min(100% - 124.4px, 1422.2px); }
+  .hero-fit .duo-pos { bottom: 57.8px; right: calc((100% - min(100% - 124.4px, 1422.2px)) / 2 + 26.7px); }
+  /* More air between the nav pill and the text (Thomas, 6/11); the hero is
+     taller than its min-height here, so pt-24 alone left only ~20px */
+  .hero-fit { padding-top: 136px; }
+}
+
+/*
+  Everything below the hero is 10% smaller from tablet width up (Thomas: "the
+  rest of the site feels a bit too zoomed in, zoom out 10%, except the hero").
+  The column is widened by 1/0.9 inside so its rendered edges still line up
+  with the nav and the hero. Phones stay at full size.
+*/
+@media (min-width: 768px) {
+  .below-hero { zoom: 0.9; }
+  .below-hero .wrap { width: min(100% - 88.9px, 1422.2px); }
+}
+@media (min-width: 1280px) {
+  .below-hero .wrap { width: min(100% - 124.4px, 1422.2px); }
 }
 
 @layer base {
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  html { zoom: var(--z); scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { margin: 0; color: var(--color-ink); font-family: var(--font-sans); background: var(--color-white); }
   ::selection { background: var(--color-accent); color: white; }
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
+    font-variation-settings: var(--display-fvs, normal);
+  }
+  summary::-webkit-details-marker { display: none; }
+}
+
+/*
+  Hand-drawn underline used on one key word per heading. Two filled marker
+  strokes (not a stroked sine): a long uneven one that tapers at the end, and a
+  shorter return stroke underneath, like a quick pen scribble.
+*/
+.pen {
+  position: relative;
+  white-space: nowrap;
+  isolation: isolate;
+}
+.pen::after {
+  content: "";
+  position: absolute;
+  left: -3%;
+  right: -4%;
+  bottom: -0.2em;
+  height: 0.42em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 22' preserveAspectRatio='none'%3E%3Cg fill='%232baeb5'%3E%3Cpath d='M3.5 11.8C22 9.4 47 8.1 79 7.7c32-.5 59 .4 91-.7 34-1.1 67-1.9 97-1.2 12 .3 21.5 1.3 29 2.6 2.4.4 2 3.2-.4 3-12-1-26-1.3-39-1.2-29 .2-54 1.2-85 1.9-32 .7-60 .2-92 1.2-28 .8-51 2.5-73.5 4.6-3.3.3-5.6-5-2.6-5.4z'/%3E%3Cpath d='M36 17.6c48-2.6 108-3.7 184-3.4 2.6 0 2.8 2.6.3 2.7-62 .6-120 1.9-183 4.5-2.7.1-3.6-3.6-1.3-3.8z' opacity='.85'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / 100% 100%;
+  z-index: -1;
+}
+.pen-light::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 22' preserveAspectRatio='none'%3E%3Cg fill='%237fd9de'%3E%3Cpath d='M3.5 11.8C22 9.4 47 8.1 79 7.7c32-.5 59 .4 91-.7 34-1.1 67-1.9 97-1.2 12 .3 21.5 1.3 29 2.6 2.4.4 2 3.2-.4 3-12-1-26-1.3-39-1.2-29 .2-54 1.2-85 1.9-32 .7-60 .2-92 1.2-28 .8-51 2.5-73.5 4.6-3.3.3-5.6-5-2.6-5.4z'/%3E%3Cpath d='M36 17.6c48-2.6 108-3.7 184-3.4 2.6 0 2.8 2.6.3 2.7-62 .6-120 1.9-183 4.5-2.7.1-3.6-3.6-1.3-3.8z' opacity='.85'/%3E%3C/g%3E%3C/svg%3E");
 }
