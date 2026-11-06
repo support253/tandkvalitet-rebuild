@@ -82,6 +82,26 @@ function Stars({ value, size = 16, track = 'text-white/30', label }: { value: nu
   )
 }
 
+/*
+  Cutout of Hana and Allan. hero-duo.webp (2000x1126) has empty margins
+  (left 254, top 262, right 275 px), so the parent box should have the opaque
+  area's ratio (1471 / 864) and the image is offset inside it.
+*/
+const DUO_RATIO = '1471 / 864'
+function DuoImage() {
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <img
+        src={heroDuo}
+        decoding="async"
+        alt="Hana El-khawaga og Allan Friis Pedersen, tandlæger og indehavere"
+        className="absolute max-w-none h-auto"
+        style={{ width: '135.962%', left: '-17.267%', top: '-30.324%' }}
+      />
+    </div>
+  )
+}
+
 function FadeIn({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
@@ -502,31 +522,24 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-t from-night via-night/65 to-night/25" />
         </div>
 
-        {/*
-          Cutout of Hana and Allan. hero-duo.webp (2000x1126) has empty margins
-          (left 254, top 262, right 275 px), so the box is the opaque area only
-          (1471x864) and the image is offset inside it.
-        */}
+        {/* Desktop: Hana and Allan to the right of the text, standing on the trust card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
           className="hidden lg:block absolute duo-pos z-10 pointer-events-none select-none drop-shadow-2xl"
-          style={{ aspectRatio: '1471 / 864' }}
+          style={{ aspectRatio: DUO_RATIO }}
         >
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={heroDuo}
-              decoding="async"
-              alt="Hana El-khawaga og Allan Friis Pedersen, tandlæger og indehavere"
-              className="absolute max-w-none h-auto"
-              style={{ width: '135.962%', left: '-17.267%', top: '-30.324%' }}
-            />
-          </div>
+          <DuoImage />
         </motion.div>
 
-        {/* Text aligned to the left edge of the content column (Thomas 6/11, after trying both) */}
-        <div className="wrap pb-32 md:pb-36 xl:pb-24 relative z-20">
+        {/*
+          Text aligned to the left edge of the content column (Thomas 6/11, after trying both).
+          Below lg the duo sits in the flow under the text and runs down to the hero's
+          bottom edge (no bottom padding), so its flat cut lines up with the end of the
+          hero where it pokes out beside the narrower trust card.
+        */}
+        <div className="wrap pb-0 lg:pb-36 xl:pb-24 relative z-20">
           <div className="max-w-[780px]">
             <motion.span initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center gap-2 bg-white/12 backdrop-blur-md ring-1 ring-white/25 text-white text-[13px] font-medium pl-2.5 pr-3.5 py-1.5 rounded-full">
@@ -539,21 +552,27 @@ export default function App() {
               <span className="text-[#8fe0e4]">Tryg i stolen.</span><br />
               Stærk i implantater.
             </motion.h1>
+            {/* Phones/tablets: one short line (Thomas: "way less description text") */}
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
-              className="text-[18px] xl:text-[20px] text-white/85 mt-6 leading-[1.6] max-w-[540px] xl:max-w-[560px]">
+              className="lg:hidden text-[17px] text-white/85 mt-4 leading-[1.55] max-w-[440px]">
+              Allan og Hana har drevet klinikken på Adelgade 5 siden august 2024.
+            </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.45 }}
+              className="hidden lg:block text-[18px] xl:text-[20px] text-white/85 mt-6 leading-[1.6] max-w-[540px] xl:max-w-[560px]">
               Allan Friis Pedersen og Hana El-khawaga har drevet klinikken på Adelgade 5 siden august 2024. Vi behandler professionelt på et højt fagligt niveau, i afslappede og behagelige omgivelser.
             </motion.p>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }}
-              className="flex flex-wrap gap-3 mt-8">
-              <a href={TEL} className="bg-accent text-white px-7 py-3.5 rounded-full text-[15px] font-semibold hover:bg-accent-dark transition-all inline-flex items-center gap-2 hover:-translate-y-0.5">
+              className="flex flex-wrap gap-2.5 sm:gap-3 mt-6 lg:mt-8">
+              <a href={TEL} className="w-full sm:w-auto justify-center bg-accent text-white px-5 sm:px-7 py-3.5 rounded-full text-[15px] font-semibold hover:bg-accent-dark transition-all inline-flex items-center gap-2 hover:-translate-y-0.5">
                 <Phone className="w-4 h-4" /> Ring og book tid
               </a>
-              <a href="#behandlinger" className="bg-white/10 backdrop-blur-md ring-1 ring-white/25 text-white px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-white/20 transition-all">
+              {/* Hidden on phones: one clear action there, and the page scrolls to the treatments anyway */}
+              <a href="#behandlinger" className="hidden sm:inline-block bg-white/10 backdrop-blur-md ring-1 ring-white/25 text-white px-5 sm:px-7 py-3.5 rounded-full text-[15px] font-medium hover:bg-white/20 transition-all">
                 Se behandlinger
               </a>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.75 }}
-              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              className="mt-6 lg:mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
               <a href={GOOGLE_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 text-white">
                 <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-soft shrink-0"><GoogleG className="w-5 h-5" /></span>
                 <span className="flex flex-col leading-tight">
@@ -565,16 +584,31 @@ export default function App() {
                 </span>
               </a>
               <span aria-hidden="true" className="hidden sm:block w-px h-9 bg-white/20" />
-              <p className="text-[14px] text-white/75 leading-relaxed">
+              <p className="hidden sm:block text-[14px] text-white/75 leading-relaxed">
                 Åbent man–fre fra 08:00<br />Telefontid 08–12 på hverdage
               </p>
             </motion.div>
           </div>
+
+          {/* Phones/tablets: Hana and Allan under the text, standing on the trust card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+            className="lg:hidden relative mt-8 -mx-5 w-[calc(100%+40px)] sm:mx-0 sm:ml-auto sm:w-full sm:max-w-[460px] pointer-events-none select-none drop-shadow-2xl"
+            style={{ aspectRatio: DUO_RATIO }}
+          >
+            <DuoImage />
+          </motion.div>
         </div>
       </section>
 
-      {/* Trust card: floats over the bottom of the hero */}
-      <div className="relative z-30 -mt-16 md:-mt-14">
+      {/*
+        Trust card: floats over the bottom of the hero. Below lg it overlaps only
+        32px so it covers less of Hana and Allan (Thomas 6/11). From lg the
+        56px overlap is what .duo-pos (bottom: 52px) is measured against.
+      */}
+      <div className="relative z-30 -mt-8 lg:-mt-14">
         <FadeIn className="wrap">
           <ul className="bg-white rounded-[28px] ring-1 ring-black/[0.05] shadow-soft grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-2">
             {[
